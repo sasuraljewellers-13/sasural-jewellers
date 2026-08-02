@@ -321,3 +321,653 @@
   </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sasural Jewellers | Luxury Gold & Silver Jewellery</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.05); }
+    }
+    .animate-glow { animation: pulseGlow 2.5s infinite; }
+
+    /* CSS Pure Auto-Hide Animation (Zero JS Error Risk) */
+    @keyframes fadeOutSplash {
+      0% { opacity: 1; visibility: visible; }
+      80% { opacity: 1; visibility: visible; }
+      100% { opacity: 0; visibility: hidden; pointer-events: none; }
+    }
+
+    #splash-screen {
+      animation: fadeOutSplash 3s forwards;
+    }
+  </style>
+</head>
+<body class="bg-[#0a0a0a] text-amber-50 font-sans selection:bg-amber-500 selection:text-black">
+
+  <!-- 1. INTRO SPLASH SCREEN -->
+  <div id="splash-screen" class="fixed inset-0 bg-black flex flex-col items-center justify-center z-50">
+    <div class="text-6xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-600 animate-glow tracking-widest drop-shadow-[0_0_20px_rgba(234,179,8,0.6)]">
+      SJ
+    </div>
+    <div class="mt-4 text-xl tracking-[0.3em] font-light text-amber-100 uppercase">
+      Sasural Jewellers
+    </div>
+    <div class="mt-6 text-xs text-amber-400/60 tracking-widest uppercase">
+      Crafting Royal Heritage
+    </div>
+  </div>
+
+  <!-- 2. NAVBAR -->
+  <header class="fixed top-0 w-full bg-black/80 backdrop-blur-md z-40 border-b border-amber-900/30">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 border border-amber-400/60 rounded-full flex items-center justify-center text-amber-400 font-serif font-bold text-lg shadow-[0_0_10px_rgba(251,191,36,0.3)]">
+          SJ
+        </div>
+        <span class="text-xl font-serif tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-500 font-bold">
+          SASURAL JEWELLERS
+        </span>
+      </div>
+
+      <nav class="hidden md:flex space-x-8 text-xs tracking-widest uppercase text-amber-200/80">
+        <a href="#home" class="hover:text-amber-400 transition-colors">Home</a>
+        <a href="#collections" class="hover:text-amber-400 transition-colors">Collections</a>
+        <a href="#about" class="hover:text-amber-400 transition-colors">About Us</a>
+        <a href="#contact" class="hover:text-amber-400 transition-colors">Contact</a>
+      </nav>
+
+      <div class="flex items-center space-x-2">
+        <a href="tel:6206217161" class="border border-amber-400/60 text-amber-300 px-3 py-1.5 text-xs tracking-widest uppercase hover:bg-amber-400 hover:text-black transition-all rounded-sm flex items-center space-x-1">
+          <span>📞 Call Us</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. HERO SECTION -->
+  <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center filter brightness-40" style="background-image: url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=2070');"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/40 to-black/70"></div>
+
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <p class="text-xs md:text-sm tracking-[0.4em] uppercase text-amber-400 mb-4">
+        Timeless Elegance & Royal Heritage
+      </p>
+      <h1 class="text-4xl md:text-7xl font-serif font-light text-amber-100 mb-6 leading-tight">
+        Luxury Gold & Silver Jewellery
+      </h1>
+      <p class="text-amber-200/60 text-sm md:text-base max-w-xl mx-auto mb-10 font-light">
+        Discover handcrafted masterpieces designed to celebrate your most cherished moments.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#collections" class="bg-gradient-to-r from-amber-400 to-yellow-600 text-black font-semibold px-8 py-3.5 text-xs tracking-widest uppercase hover:brightness-110 transition-all shadow-[0_0_20px_rgba(234,179,8,0.3)]">
+          Explore Collection
+        </a>
+        <a href="https://wa.me/918873274241?text=Hi%20Sasural%20Jewellers,%20I%20want%20to%20visit%20your%20showroom" target="_blank" class="border border-amber-400/40 text-amber-200 px-8 py-3.5 text-xs tracking-widest uppercase hover:border-amber-400 hover:text-amber-400 transition-all">
+          Visit Showroom
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. FEATURED COLLECTIONS -->
+  <section id="collections" class="py-24 px-6 max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-serif text-amber-200 tracking-wider mb-3">
+        Our Exclusive Collections
+      </h2>
+      <div class="w-20 h-0.5 bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Card 1: Gold -->
+      <div class="group relative overflow-hidden rounded-sm border border-amber-900/30 bg-neutral-900/50">
+        <div class="aspect-[4/5] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=1000" alt="Royal Gold" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent flex flex-col justify-end p-6 text-center">
+          <h3 class="text-xl font-serif text-amber-100 mb-2">Royal Gold Jewellery</h3>
+          <a href="https://wa.me/918873274241?text=Hi,%20I%20want%20to%20see%20Gold%20Jewellery%20designs" target="_blank" class="text-xs tracking-widest text-amber-400 uppercase opacity-90 group-hover:opacity-100 transition-opacity">
+            Enquire on WhatsApp →
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2: Silver -->
+      <div class="group relative overflow-hidden rounded-sm border border-amber-900/30 bg-neutral-900/50">
+        <div class="aspect-[4/5] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1000" alt="Fine Silver" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent flex flex-col justify-end p-6 text-center">
+          <h3 class="text-xl font-serif text-amber-100 mb-2">Fine Silver Articles</h3>
+          <a href="https://wa.me/919110045058?text=Hi,%20I%20want%20to%20see%20Silver%20Jewellery%20designs" target="_blank" class="text-xs tracking-widest text-amber-400 uppercase opacity-90 group-hover:opacity-100 transition-opacity">
+            Enquire on WhatsApp →
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3: Rings/Chains -->
+      <div class="group relative overflow-hidden rounded-sm border border-amber-900/30 bg-neutral-900/50">
+        <div class="aspect-[4/5] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?q=80&w=1000" alt="Designer Rings" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent flex flex-col justify-end p-6 text-center">
+          <h3 class="text-xl font-serif text-amber-100 mb-2">Designer Rings & Chains</h3>
+          <a href="https://wa.me/918873274241?text=Hi,%20I%20want%20to%20see%20Rings%20and%20Chains" target="_blank" class="text-xs tracking-widest text-amber-400 uppercase opacity-90 group-hover:opacity-100 transition-opacity">
+            Enquire on WhatsApp →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. FLOATING MULTI-CONTACT MENU -->
+  <div class="fixed bottom-6 right-6 z-40 flex flex-col space-y-2">
+    <a href="https://wa.me/918873274241?text=Hi%20Sasural%20Jewellers,%20I%20have%20a%20Gold%20enquiry" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-full shadow-[0_0_15px_rgba(16,185,129,0.4)] text-xs font-medium flex items-center space-x-2 transition-transform hover:scale-105">
+      <span>💬 Gold Enquiry: 88732 74241</span>
+    </a>
+
+    <a href="https://wa.me/919110045058?text=Hi%20Sasural%20Jewellers,%20I%20have%20a%20Silver%20enquiry" target="_blank" class="bg-emerald-700 hover:bg-emerald-600 text-white px-4 py-2 rounded-full shadow-[0_0_15px_rgba(16,185,129,0.4)] text-xs font-medium flex items-center space-x-2 transition-transform hover:scale-105">
+      <span>💬 Silver Enquiry: 91100 45058</span>
+    </a>
+
+    <a href="tel:6206217161" class="bg-amber-600 hover:bg-amber-500 text-black px-4 py-2 rounded-full shadow-[0_0_15px_rgba(245,158,11,0.4)] text-xs font-semibold flex items-center space-x-2 transition-transform hover:scale-105">
+      <span>📞 Call Store: 62062 17161</span>
+    </a>
+  </div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sasural Jewellers | Luxury Gold & Silver Jewellery</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.05); }
+    }
+    .animate-glow { animation: pulseGlow 2.5s infinite; }
+
+    /* CSS Pure Auto-Hide Animation (Zero JS Error Risk) */
+    @keyframes fadeOutSplash {
+      0% { opacity: 1; visibility: visible; }
+      80% { opacity: 1; visibility: visible; }
+      100% { opacity: 0; visibility: hidden; pointer-events: none; }
+    }
+
+    #splash-screen {
+      animation: fadeOutSplash 3s forwards;
+    }
+  </style>
+</head>
+<body class="bg-[#0a0a0a] text-amber-50 font-sans selection:bg-amber-500 selection:text-black">
+
+  <!-- 1. INTRO SPLASH SCREEN -->
+  <div id="splash-screen" class="fixed inset-0 bg-black flex flex-col items-center justify-center z-50">
+    <div class="text-6xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-600 animate-glow tracking-widest drop-shadow-[0_0_20px_rgba(234,179,8,0.6)]">
+      SJ
+    </div>
+    <div class="mt-4 text-xl tracking-[0.3em] font-light text-amber-100 uppercase">
+      Sasural Jewellers
+    </div>
+    <div class="mt-6 text-xs text-amber-400/60 tracking-widest uppercase">
+      Crafting Royal Heritage
+    </div>
+  </div>
+
+  <!-- 2. NAVBAR -->
+  <header class="fixed top-0 w-full bg-black/80 backdrop-blur-md z-40 border-b border-amber-900/30">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 border border-amber-400/60 rounded-full flex items-center justify-center text-amber-400 font-serif font-bold text-lg shadow-[0_0_10px_rgba(251,191,36,0.3)]">
+          SJ
+        </div>
+        <span class="text-xl font-serif tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-500 font-bold">
+          SASURAL JEWELLERS
+        </span>
+      </div>
+
+      <nav class="hidden md:flex space-x-8 text-xs tracking-widest uppercase text-amber-200/80">
+        <a href="#home" class="hover:text-amber-400 transition-colors">Home</a>
+        <a href="#collections" class="hover:text-amber-400 transition-colors">Collections</a>
+        <a href="#about" class="hover:text-amber-400 transition-colors">About Us</a>
+        <a href="#contact" class="hover:text-amber-400 transition-colors">Contact</a>
+      </nav>
+
+      <div class="flex items-center space-x-2">
+        <a href="tel:6206217161" class="border border-amber-400/60 text-amber-300 px-3 py-1.5 text-xs tracking-widest uppercase hover:bg-amber-400 hover:text-black transition-all rounded-sm flex items-center space-x-1">
+          <span>📞 Call Us</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. HERO SECTION -->
+  <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center filter brightness-40" style="background-image: url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=2070');"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/40 to-black/70"></div>
+
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <p class="text-xs md:text-sm tracking-[0.4em] uppercase text-amber-400 mb-4">
+        Timeless Elegance & Royal Heritage
+      </p>
+      <h1 class="text-4xl md:text-7xl font-serif font-light text-amber-100 mb-6 leading-tight">
+        Luxury Gold & Silver Jewellery
+      </h1>
+      <p class="text-amber-200/60 text-sm md:text-base max-w-xl mx-auto mb-10 font-light">
+        Discover handcrafted masterpieces designed to celebrate your most cherished moments.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#collections" class="bg-gradient-to-r from-amber-400 to-yellow-600 text-black font-semibold px-8 py-3.5 text-xs tracking-widest uppercase hover:brightness-110 transition-all shadow-[0_0_20px_rgba(234,179,8,0.3)]">
+          Explore Collection
+        </a>
+        <a href="https://wa.me/918873274241?text=Hi%20Sasural%20Jewellers,%20I%20want%20to%20visit%20your%20showroom" target="_blank" class="border border-amber-400/40 text-amber-200 px-8 py-3.5 text-xs tracking-widest uppercase hover:border-amber-400 hover:text-amber-400 transition-all">
+          Visit Showroom
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. FEATURED COLLECTIONS -->
+  <section id="collections" class="py-24 px-6 max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-serif text-amber-200 tracking-wider mb-3">
+        Our Exclusive Collections
+      </h2>
+      <div class="w-20 h-0.5 bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Card 1: Gold -->
+      <div class="group relative overflow-hidden rounded-sm border border-amber-900/30 bg-neutral-900/50">
+        <div class="aspect-[4/5] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=1000" alt="Royal Gold" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent flex flex-col justify-end p-6 text-center">
+          <h3 class="text-xl font-serif text-amber-100 mb-2">Royal Gold Jewellery</h3>
+          <a href="https://wa.me/918873274241?text=Hi,%20I%20want%20to%20see%20Gold%20Jewellery%20designs" target="_blank" class="text-xs tracking-widest text-amber-400 uppercase opacity-90 group-hover:opacity-100 transition-opacity">
+            Enquire on WhatsApp →
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2: Silver -->
+      <div class="group relative overflow-hidden rounded-sm border border-amber-900/30 bg-neutral-900/50">
+        <div class="aspect-[4/5] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1000" alt="Fine Silver" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent flex flex-col justify-end p-6 text-center">
+          <h3 class="text-xl font-serif text-amber-100 mb-2">Fine Silver Articles</h3>
+          <a href="https://wa.me/919110045058?text=Hi,%20I%20want%20to%20see%20Silver%20Jewellery%20designs" target="_blank" class="text-xs tracking-widest text-amber-400 uppercase opacity-90 group-hover:opacity-100 transition-opacity">
+            Enquire on WhatsApp →
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3: Rings/Chains -->
+      <div class="group relative overflow-hidden rounded-sm border border-amber-900/30 bg-neutral-900/50">
+        <div class="aspect-[4/5] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?q=80&w=1000" alt="Designer Rings" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent flex flex-col justify-end p-6 text-center">
+          <h3 class="text-xl font-serif text-amber-100 mb-2">Designer Rings & Chains</h3>
+          <a href="https://wa.me/918873274241?text=Hi,%20I%20want%20to%20see%20Rings%20and%20Chains" target="_blank" class="text-xs tracking-widest text-amber-400 uppercase opacity-90 group-hover:opacity-100 transition-opacity">
+            Enquire on WhatsApp →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. FLOATING MULTI-CONTACT MENU -->
+  <div class="fixed bottom-6 right-6 z-40 flex flex-col space-y-2">
+    <a href="https://wa.me/918873274241?text=Hi%20Sasural%20Jewellers,%20I%20have%20a%20Gold%20enquiry" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-full shadow-[0_0_15px_rgba(16,185,129,0.4)] text-xs font-medium flex items-center space-x-2 transition-transform hover:scale-105">
+      <span>💬 Gold Enquiry: 88732 74241</span>
+    </a>
+
+    <a href="https://wa.me/919110045058?text=Hi%20Sasural%20Jewellers,%20I%20have%20a%20Silver%20enquiry" target="_blank" class="bg-emerald-700 hover:bg-emerald-600 text-white px-4 py-2 rounded-full shadow-[0_0_15px_rgba(16,185,129,0.4)] text-xs font-medium flex items-center space-x-2 transition-transform hover:scale-105">
+      <span>💬 Silver Enquiry: 91100 45058</span>
+    </a>
+
+    <a href="tel:6206217161" class="bg-amber-600 hover:bg-amber-500 text-black px-4 py-2 rounded-full shadow-[0_0_15px_rgba(245,158,11,0.4)] text-xs font-semibold flex items-center space-x-2 transition-transform hover:scale-105">
+      <span>📞 Call Store: 62062 17161</span>
+    </a>
+  </div>
+
+</body>  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sasural Jewellers | Luxury Gold & Silver Jewellery</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.05); }
+    }
+    .animate-glow { animation: pulseGlow 2.5s infinite; }
+
+    /* CSS Pure Auto-Hide Animation (Zero JS Error Risk) */
+    @keyframes fadeOutSplash {
+      0% { opacity: 1; visibility: visible; }
+      80% { opacity: 1; visibility: visible; }
+      100% { opacity: 0; visibility: hidden; pointer-events: none; }
+    }
+
+    #splash-screen {
+      animation: fadeOutSplash 3s forwards;
+    }
+  </style>
+</head>
+<body class="bg-[#0a0a0a] text-amber-50 font-sans selection:bg-amber-500 selection:text-black">
+
+  <!-- 1. INTRO SPLASH SCREEN -->
+  <div id="splash-screen" class="fixed inset-0 bg-black flex flex-col items-center justify-center z-50">
+    <div class="text-6xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-600 animate-glow tracking-widest drop-shadow-[0_0_20px_rgba(234,179,8,0.6)]">
+      SJ
+    </div>
+    <div class="mt-4 text-xl tracking-[0.3em] font-light text-amber-100 uppercase">
+      Sasural Jewellers
+    </div>
+    <div class="mt-6 text-xs text-amber-400/60 tracking-widest uppercase">
+      Crafting Royal Heritage
+    </div>
+  </div>
+
+  <!-- 2. NAVBAR -->
+  <header class="fixed top-0 w-full bg-black/80 backdrop-blur-md z-40 border-b border-amber-900/30">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 border border-amber-400/60 rounded-full flex items-center justify-center text-amber-400 font-serif font-bold text-lg shadow-[0_0_10px_rgba(251,191,36,0.3)]">
+          SJ
+        </div>
+        <span class="text-xl font-serif tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-500 font-bold">
+          SASURAL JEWELLERS
+        </span>
+      </div>
+
+      <nav class="hidden md:flex space-x-8 text-xs tracking-widest uppercase text-amber-200/80">
+        <a href="#home" class="hover:text-amber-400 transition-colors">Home</a>
+        <a href="#collections" class="hover:text-amber-400 transition-colors">Collections</a>
+        <a href="#about" class="hover:text-amber-400 transition-colors">About Us</a>
+        <a href="#contact" class="hover:text-amber-400 transition-colors">Contact</a>
+      </nav>
+
+      <div class="flex items-center space-x-2">
+        <a href="tel:6206217161" class="border border-amber-400/60 text-amber-300 px-3 py-1.5 text-xs tracking-widest uppercase hover:bg-amber-400 hover:text-black transition-all rounded-sm flex items-center space-x-1">
+          <span>📞 Call Us</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. HERO SECTION -->
+  <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center filter brightness-40" style="background-image: url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=2070');"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/40 to-black/70"></div>
+
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <p class="text-xs md:text-sm tracking-[0.4em] uppercase text-amber-400 mb-4">
+        Timeless Elegance & Royal Heritage
+      </p>
+      <h1 class="text-4xl md:text-7xl font-serif font-light text-amber-100 mb-6 leading-tight">
+        Luxury Gold & Silver Jewellery
+      </h1>
+      <p class="text-amber-200/60 text-sm md:text-base max-w-xl mx-auto mb-10 font-light">
+        Discover handcrafted masterpieces designed to celebrate your most cherished moments.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#collections" class="bg-gradient-to-r from-amber-400 to-yellow-600 text-black font-semibold px-8 py-3.5 text-xs tracking-widest uppercase hover:brightness-110 transition-all shadow-[0_0_20px_rgba(234,179,8,0.3)]">
+          Explore Collection
+        </a>
+        <a href="https://wa.me/918873274241?text=Hi%20Sasural%20Jewellers,%20I%20want%20to%20visit%20your%20showroom" target="_blank" class="border border-amber-400/40 text-amber-200 px-8 py-3.5 text-xs tracking-widest uppercase hover:border-amber-400 hover:text-amber-400 transition-all">
+          Visit Showroom
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. FEATURED COLLECTIONS -->
+  <section id="collections" class="py-24 px-6 max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-serif text-amber-200 tracking-wider mb-3">
+        Our Exclusive Collections
+      </h2>
+      <div class="w-20 h-0.5 bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Card 1: Gold -->
+      <div class="group relative overflow-hidden rounded-sm border border-amber-900/30 bg-neutral-900/50">
+        <div class="aspect-[4/5] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=1000" alt="Royal Gold" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent flex flex-col justify-end p-6 text-center">
+          <h3 class="text-xl font-serif text-amber-100 mb-2">Royal Gold Jewellery</h3>
+          <a href="https://wa.me/918873274241?text=Hi,%20I%20want%20to%20see%20Gold%20Jewellery%20designs" target="_blank" class="text-xs tracking-widest text-amber-400 uppercase opacity-90 group-hover:opacity-100 transition-opacity">
+            Enquire on WhatsApp →
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2: Silver -->
+      <div class="group relative overflow-hidden rounded-sm border border-amber-900/30 bg-neutral-900/50">
+        <div class="aspect-[4/5] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1000" alt="Fine Silver" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent flex flex-col justify-end p-6 text-center">
+          <h3 class="text-xl font-serif text-amber-100 mb-2">Fine Silver Articles</h3>
+          <a href="https://wa.me/919110045058?text=Hi,%20I%20want%20to%20see%20Silver%20Jewellery%20designs" target="_blank" class="text-xs tracking-widest text-amber-400 uppercase opacity-90 group-hover:opacity-100 transition-opacity">
+            Enquire on WhatsApp →
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3: Rings/Chains -->
+      <div class="group relative overflow-hidden rounded-sm border border-amber-900/30 bg-neutral-900/50">
+        <div class="aspect-[4/5] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?q=80&w=1000" alt="Designer Rings" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent flex flex-col justify-end p-6 text-center">
+          <h3 class="text-xl font-serif text-amber-100 mb-2">Designer Rings & Chains</h3>
+          <a href="https://wa.me/918873274241?text=Hi,%20I%20want%20to%20see%20Rings%20and%20Chains" target="_blank" class="text-xs tracking-widest text-amber-400 uppercase opacity-90 group-hover:opacity-100 transition-opacity">
+            Enquire on WhatsApp →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. FLOATING MULTI-CONTACT MENU -->
+  <div class="fixed bottom-6 right-6 z-40 flex flex-col space-y-2">
+    <a href="https://wa.me/918873274241?text=Hi%20Sasural%20Jewellers,%20I%20have%20a%20Gold%20enquiry" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-full shadow-[0_0_15px_rgba(16,185,129,0.4)] text-xs font-medium flex items-center space-x-2 transition-transform hover:scale-105">
+      <span>💬 Gold Enquiry: 88732 74241</span>
+    </a>
+
+    <a href="https://wa.me/919110045058?text=Hi%20Sasural%20Jewellers,%20I%20have%20a%20Silver%20enquiry" target="_blank" class="bg-emerald-700 hover:bg-emerald-600 text-white px-4 py-2 rounded-full shadow-[0_0_15px_rgba(16,185,129,0.4)] text-xs font-medium flex items-center space-x-2 transition-transform hover:scale-105">
+      <span>💬 Silver Enquiry: 91100 45058</span>
+    </a>
+
+    <a href="tel:6206217161" class="bg-amber-600 hover:bg-amber-500 text-black px-4 py-2 rounded-full shadow-[0_0_15px_rgba(245,158,11,0.4)] text-xs font-semibold flex items-center space-x-2 transition-transform hover:scale-105">
+      <span>📞 Call Store: 62062 17161</span>
+    </a>
+  </div>
+
+</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sasural Jewellers | Luxury Gold & Silver Jewellery</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.05); }
+    }
+    .animate-glow { animation: pulseGlow 2.5s infinite; }
+
+    /* CSS Pure Auto-Hide Animation (Zero JS Error Risk) */
+    @keyframes fadeOutSplash {
+      0% { opacity: 1; visibility: visible; }
+      80% { opacity: 1; visibility: visible; }
+      100% { opacity: 0; visibility: hidden; pointer-events: none; }
+    }
+
+    #splash-screen {
+      animation: fadeOutSplash 3s forwards;
+    }
+  </style>
+</head>
+<body class="bg-[#0a0a0a] text-amber-50 font-sans selection:bg-amber-500 selection:text-black">
+
+  <!-- 1. INTRO SPLASH SCREEN -->
+  <div id="splash-screen" class="fixed inset-0 bg-black flex flex-col items-center justify-center z-50">
+    <div class="text-6xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-600 animate-glow tracking-widest drop-shadow-[0_0_20px_rgba(234,179,8,0.6)]">
+      SJ
+    </div>
+    <div class="mt-4 text-xl tracking-[0.3em] font-light text-amber-100 uppercase">
+      Sasural Jewellers
+    </div>
+    <div class="mt-6 text-xs text-amber-400/60 tracking-widest uppercase">
+      Crafting Royal Heritage
+    </div>
+  </div>
+
+  <!-- 2. NAVBAR -->
+  <header class="fixed top-0 w-full bg-black/80 backdrop-blur-md z-40 border-b border-amber-900/30">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 border border-amber-400/60 rounded-full flex items-center justify-center text-amber-400 font-serif font-bold text-lg shadow-[0_0_10px_rgba(251,191,36,0.3)]">
+          SJ
+        </div>
+        <span class="text-xl font-serif tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-500 font-bold">
+          SASURAL JEWELLERS
+        </span>
+      </div>
+
+      <nav class="hidden md:flex space-x-8 text-xs tracking-widest uppercase text-amber-200/80">
+        <a href="#home" class="hover:text-amber-400 transition-colors">Home</a>
+        <a href="#collections" class="hover:text-amber-400 transition-colors">Collections</a>
+        <a href="#about" class="hover:text-amber-400 transition-colors">About Us</a>
+        <a href="#contact" class="hover:text-amber-400 transition-colors">Contact</a>
+      </nav>
+
+      <div class="flex items-center space-x-2">
+        <a href="tel:6206217161" class="border border-amber-400/60 text-amber-300 px-3 py-1.5 text-xs tracking-widest uppercase hover:bg-amber-400 hover:text-black transition-all rounded-sm flex items-center space-x-1">
+          <span>📞 Call Us</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. HERO SECTION -->
+  <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center filter brightness-40" style="background-image: url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=2070');"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/40 to-black/70"></div>
+
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <p class="text-xs md:text-sm tracking-[0.4em] uppercase text-amber-400 mb-4">
+        Timeless Elegance & Royal Heritage
+      </p>
+      <h1 class="text-4xl md:text-7xl font-serif font-light text-amber-100 mb-6 leading-tight">
+        Luxury Gold & Silver Jewellery
+      </h1>
+      <p class="text-amber-200/60 text-sm md:text-base max-w-xl mx-auto mb-10 font-light">
+        Discover handcrafted masterpieces designed to celebrate your most cherished moments.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#collections" class="bg-gradient-to-r from-amber-400 to-yellow-600 text-black font-semibold px-8 py-3.5 text-xs tracking-widest uppercase hover:brightness-110 transition-all shadow-[0_0_20px_rgba(234,179,8,0.3)]">
+          Explore Collection
+        </a>
+        <a href="https://wa.me/918873274241?text=Hi%20Sasural%20Jewellers,%20I%20want%20to%20visit%20your%20showroom" target="_blank" class="border border-amber-400/40 text-amber-200 px-8 py-3.5 text-xs tracking-widest uppercase hover:border-amber-400 hover:text-amber-400 transition-all">
+          Visit Showroom
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. FEATURED COLLECTIONS -->
+  <section id="collections" class="py-24 px-6 max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-serif text-amber-200 tracking-wider mb-3">
+        Our Exclusive Collections
+      </h2>
+      <div class="w-20 h-0.5 bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Card 1: Gold -->
+      <div class="group relative overflow-hidden rounded-sm border border-amber-900/30 bg-neutral-900/50">
+        <div class="aspect-[4/5] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=1000" alt="Royal Gold" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent flex flex-col justify-end p-6 text-center">
+          <h3 class="text-xl font-serif text-amber-100 mb-2">Royal Gold Jewellery</h3>
+          <a href="https://wa.me/918873274241?text=Hi,%20I%20want%20to%20see%20Gold%20Jewellery%20designs" target="_blank" class="text-xs tracking-widest text-amber-400 uppercase opacity-90 group-hover:opacity-100 transition-opacity">
+            Enquire on WhatsApp →
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2: Silver -->
+      <div class="group relative overflow-hidden rounded-sm border border-amber-900/30 bg-neutral-900/50">
+        <div class="aspect-[4/5] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1000" alt="Fine Silver" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent flex flex-col justify-end p-6 text-center">
+          <h3 class="text-xl font-serif text-amber-100 mb-2">Fine Silver Articles</h3>
+          <a href="https://wa.me/919110045058?text=Hi,%20I%20want%20to%20see%20Silver%20Jewellery%20designs" target="_blank" class="text-xs tracking-widest text-amber-400 uppercase opacity-90 group-hover:opacity-100 transition-opacity">
+            Enquire on WhatsApp →
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3: Rings/Chains -->
+      <div class="group relative overflow-hidden rounded-sm border border-amber-900/30 bg-neutral-900/50">
+        <div class="aspect-[4/5] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?q=80&w=1000" alt="Designer Rings" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent flex flex-col justify-end p-6 text-center">
+          <h3 class="text-xl font-serif text-amber-100 mb-2">Designer Rings & Chains</h3>
+          <a href="https://wa.me/918873274241?text=Hi,%20I%20want%20to%20see%20Rings%20and%20Chains" target="_blank" class="text-xs tracking-widest text-amber-400 uppercase opacity-90 group-hover:opacity-100 transition-opacity">
+            Enquire on WhatsApp →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. FLOATING MULTI-CONTACT MENU -->
+  <div class="fixed bottom-6 right-6 z-40 flex flex-col space-y-2">
+    <a href="https://wa.me/918873274241?text=Hi%20Sasural%20Jewellers,%20I%20have%20a%20Gold%20enquiry" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-full shadow-[0_0_15px_rgba(16,185,129,0.4)] text-xs font-medium flex items-center space-x-2 transition-transform hover:scale-105">
+      <span>💬 Gold Enquiry: 88732 74241</span>
+    </a>
+
+    <a href="https://wa.me/919110045058?text=Hi%20Sasural%20Jewellers,%20I%20have%20a%20Silver%20enquiry" target="_blank" class="bg-emerald-700 hover:bg-emerald-600 text-white px-4 py-2 rounded-full shadow-[0_0_15px_rgba(16,185,129,0.4)] text-xs font-medium flex items-center space-x-2 transition-transform hover:scale-105">
+      <span>💬 Silver Enquiry: 91100 45058</span>
+    </a>
+
+    <a href="tel:6206217161" class="bg-amber-600 hover:bg-amber-500 text-black px-4 py-2 rounded-full shadow-[0_0_15px_rgba(245,158,11,0.4)] text-xs font-semibold flex items-center space-x-2 transition-transform hover:scale-105">
+      <span>📞 Call Store: 62062 17161</span>
+    </a>
+  </div>
+
+</body>
+</html>
