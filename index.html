@@ -68,12 +68,12 @@
         </div>
     </section>
 
-    <!-- COLLECTION SECTION (50 UNIQUE ITEMS) -->
+    <!-- COLLECTION SECTION (50 REAL GOLD JEWELRY ITEMS) -->
     <section id="collection" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
             <h2 class="text-3xl sm:text-5xl font-serif font-bold mb-4">Our Exclusive Collection</h2>
             <div class="w-24 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto mb-4"></div>
-            <p class="text-stone-400 max-w-md mx-auto">50 Unique Handcrafted Gold Rings & Bangles Designs</p>
+            <p class="text-stone-400 max-w-md mx-auto">50 Handcrafted Gold Rings & Bangles Designs</p>
         </div>
 
         <!-- 50 PRODUCTS GRID -->
@@ -98,19 +98,33 @@
         </div>
     </footer>
 
-    <!-- SCRIPT FOR GENERATING 50 UNIQUE ITEMS -->
+    <!-- SCRIPT WITH REAL JEWELRY IMAGE URLS -->
     <script>
         const grid = document.getElementById('product-grid');
 
-        // Unsplash keyword query parameters ensuring unique gold ring & bangle images dynamically
+        // Curated Gold Ring & Bangle Image URLs
+        const jewelryImages = [
+            "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=500&q=80",
+            "https://images.unsplash.com/photo-1611591475870-802d2946c6b3?auto=format&fit=crop&w=500&q=80",
+            "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=500&q=80",
+            "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=500&q=80",
+            "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=500&q=80",
+            "https://images.unsplash.com/photo-1598560917505-59a3ad559071?auto=format&fit=crop&w=500&q=80",
+            "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=500&q=80",
+            "https://images.unsplash.com/photo-1603561596112-0a132b757442?auto=format&fit=crop&w=500&q=80",
+            "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=500&q=80",
+            "https://images.unsplash.com/photo-1543294001-f7cd5d7fb516?auto=format&fit=crop&w=500&q=80"
+        ];
+
         for (let i = 1; i <= 50; i++) {
             const isRing = i % 2 !== 0; // Odd = Ring, Even = Bangle
             
-            // Random unique dynamic image URLs using Unsplash source API with unique IDs & keywords
-            const imgKeyword = isRing ? 'gold,ring' : 'gold,bangle,bracelet';
-            const imgUrl = `https://picsum.photos/seed/goldjewel${i}/500/500`; // Pure distinct images for each index
+            // Unsplash Jewelry Direct Direct Source Links with variations
+            const baseImg = jewelryImages[(i - 1) % jewelryImages.length];
+            // Image URLs parameter variation to ensure no caching conflicts
+            const imgUrl = `${baseImg}&sig=${i}`;
 
-            const title = isRing ? `Solitaire Gold Ring Vol.${i}` : `Royal Bridal Bangle Vol.${i}`;
+            const title = isRing ? `Royal Gold Ring Vol.${i}` : `Bridal Gold Bangle Vol.${i}`;
             const category = isRing ? "22K Gold Ring" : "22K Gold Bangle";
             const price = isRing ? `₹${(18000 + i * 650).toLocaleString('en-IN')}` : `₹${(42000 + i * 1150).toLocaleString('en-IN')}`;
 
