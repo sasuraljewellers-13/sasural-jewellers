@@ -85,22 +85,22 @@
       <div class="w-20 h-0.5 bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto"></div>
     </div>
 
-    <!-- Container for uploaded images -->
+    <!-- Gallery Grid Container -->
     <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       <!-- Images will load here automatically -->
     </div>
   </section>
 
   <!-- 5. FLOATING CONTACT BUTTONS -->
-  <div class="fixed bottom-6 right-6 z-50 flex flex-col space-y-2">
-    <a href="https://wa.me/918873274241?text=Hi%20Sasural%20Jewellers,%20I%20have%20a%20Gold%20enquiry" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-full shadow-lg text-xs font-medium">
-      💬 Gold Enquiry: 88732 74241
+  <div class="fixed bottom-6 right-6 z-50 flex flex-col space-y-2" id="contact">
+    <a href="https://wa.me/918873274241?text=Hi%20Sasural%20Jewellers,%20I%20have%20a%20Gold%20enquiry" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-full shadow-lg text-xs font-medium flex items-center space-x-2">
+      <span>💬 Gold Enquiry: 88732 74241</span>
     </a>
-    <a href="https://wa.me/919110045058?text=Hi%20Sasural%20Jewellers,%20I%20have%20a%20Silver%20enquiry" target="_blank" class="bg-emerald-700 hover:bg-emerald-600 text-white px-4 py-2 rounded-full shadow-lg text-xs font-medium">
-      💬 Silver Enquiry: 91100 45058
+    <a href="https://wa.me/919110045058?text=Hi%20Sasural%20Jewellers,%20I%20have%20a%20Silver%20enquiry" target="_blank" class="bg-emerald-700 hover:bg-emerald-600 text-white px-4 py-2 rounded-full shadow-lg text-xs font-medium flex items-center space-x-2">
+      <span>💬 Silver Enquiry: 91100 45058</span>
     </a>
-    <a href="tel:6206217161" class="bg-amber-600 hover:bg-amber-500 text-black px-4 py-2 rounded-full shadow-lg text-xs font-semibold">
-      📞 Call Store: 62062 17161
+    <a href="tel:6206217161" class="bg-amber-600 hover:bg-amber-500 text-black px-4 py-2 rounded-full shadow-lg text-xs font-semibold flex items-center space-x-2">
+      <span>📞 Call Store: 62062 17161</span>
     </a>
   </div>
 
@@ -114,7 +114,7 @@
         setTimeout(() => splash.style.display = 'none', 700);
       }, 2500);
 
-      // List of exact uploaded images from screenshot
+      // Aapki exact uploaded photos ki list
       const uploadedImages = [
         { name: "Alluring Scallop Gold Ring", file: "Alluring scallop Gold Ring.jpg" },
         { name: "Classy Ring", file: "Classy Ring.jpg" },
@@ -137,7 +137,7 @@
         const encodedText = encodeURIComponent(`Hi Sasural Jewellers, I am interested in ${item.name}`);
 
         htmlContent += `
-          <div class="group relative overflow-hidden rounded-sm border border-amber-900/30 bg-neutral-900/50 hover:border-amber-400/60 transition-all">
+          <div class="group relative overflow-hidden rounded-sm border border-amber-900/30 bg-neutral-900/50 hover:border-amber-400/60 transition-all shadow-md">
             <div class="aspect-square overflow-hidden bg-neutral-800">
               <img src="${encodedFile}" alt="${item.name}" 
                    loading="lazy" 
