@@ -46,7 +46,7 @@
         <a href="#home" class="hover:text-amber-400 transition-colors">Home</a>
         <a href="#rings-section" class="hover:text-amber-400 transition-colors">Gold Rings</a>
         <a href="#bangles-section" class="hover:text-amber-400 transition-colors">Gold Bangles & Kada</a>
-        <a href="#contact" class="hover:text-amber-400 transition-colors">Contact</a>
+        <a href="#store-address" class="hover:text-amber-400 transition-colors">Visit Store</a>
       </nav>
 
       <div class="flex items-center space-x-2">
@@ -80,9 +80,17 @@
     </div>
   </section>
 
+  <!-- SEARCH BAR SECTION -->
+  <section class="py-8 px-6 max-w-3xl mx-auto">
+    <div class="relative">
+      <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="🔍 Search Rings, Bangles or Kada by name..." 
+        class="w-full bg-neutral-900 border border-amber-500/40 rounded-full py-3 px-6 text-sm text-amber-100 placeholder-amber-400/50 focus:outline-none focus:border-amber-400 shadow-[0_0_15px_rgba(234,179,8,0.1)]">
+    </div>
+  </section>
+
   <!-- 4. SECTION 1: GOLD RINGS GALLERY -->
-  <section id="rings-section" class="py-20 px-6 max-w-7xl mx-auto">
-    <div class="text-center mb-16">
+  <section id="rings-section" class="py-12 px-6 max-w-7xl mx-auto">
+    <div class="text-center mb-12">
       <h2 class="text-3xl md:text-4xl font-serif text-amber-200 tracking-wider mb-3">
         Exclusive Gold Rings Collection
       </h2>
@@ -94,8 +102,8 @@
   </section>
 
   <!-- 5. SECTION 2: GOLD BANGLES GALLERY -->
-  <section id="bangles-section" class="py-20 px-6 max-w-7xl mx-auto border-t border-amber-900/30">
-    <div class="text-center mb-16">
+  <section id="bangles-section" class="py-12 px-6 max-w-7xl mx-auto border-t border-amber-900/30">
+    <div class="text-center mb-12">
       <h2 class="text-3xl md:text-4xl font-serif text-amber-200 tracking-wider mb-3">
         Royal Gold Bangles & Kada Collection
       </h2>
@@ -106,8 +114,43 @@
     <div id="bangles-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
   </section>
 
-  <!-- 6. FLOATING CONTACT BUTTONS -->
-  <div class="fixed bottom-6 right-6 z-50 flex flex-col space-y-2" id="contact">
+  <!-- STORE ADDRESS & LOCATION SECTION -->
+  <section id="store-address" class="py-16 px-6 border-t border-amber-900/40 bg-neutral-950">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <div class="space-y-4">
+        <span class="text-xs tracking-widest text-amber-400 uppercase">Visit Our Showroom</span>
+        <h2 class="text-3xl font-serif text-amber-100">Sasural Jewellers Store</h2>
+        <p class="text-neutral-400 text-sm leading-relaxed">
+          Experience our royal gold & silver collection in person. Visit our store for certified gold and pure silver ornaments.
+        </p>
+        <div class="space-y-2 text-sm text-amber-200/90 pt-2">
+          <p>📍 <strong>Address:</strong> Tarapur, Near Shanker Vastralay, Bihar</p>
+          <p>🕒 <strong>Store Timings:</strong> 10:30 AM - 8:30 PM (Open Daily)</p>
+          <p>📞 <strong>Phone:</strong> +91 62062 17161</p>
+          <p>💬 <strong>WhatsApp Gold:</strong> +91 88732 74241</p>
+        </div>
+      </div>
+      <div class="border border-amber-500/30 rounded-lg p-2 bg-neutral-900 overflow-hidden">
+        <iframe 
+          title="Google Map Location"
+          src="https://maps.google.com/maps?q=Tarapur,Bihar&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+          class="w-full h-64 rounded border-0 filter grayscale opacity-80 hover:opacity-100 hover:grayscale-0 transition-all">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMAGE ZOOM MODAL (POPUP) -->
+  <div id="imageModal" class="fixed inset-0 bg-black/90 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm" onclick="closeModal()">
+    <div class="relative max-w-3xl w-full bg-neutral-900 border border-amber-500/40 p-4 rounded-lg" onclick="event.stopPropagation()">
+      <button onclick="closeModal()" class="absolute top-2 right-4 text-amber-400 text-3xl font-bold hover:text-white">&times;</button>
+      <img id="modalImg" src="" class="w-full h-auto max-h-[75vh] object-contain rounded">
+      <h3 id="modalTitle" class="text-center font-serif text-lg text-amber-200 mt-4"></h3>
+    </div>
+  </div>
+
+  <!-- FLOATING CONTACT BUTTONS -->
+  <div class="fixed bottom-6 right-6 z-40 flex flex-col space-y-2">
     <a href="https://wa.me/918873274241?text=Hi%20Sasural%20Jewellers,%20I%20have%20a%20Gold%20enquiry" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-full shadow-lg text-xs font-medium flex items-center space-x-2">
       <span>💬 Gold Enquiry: 88732 74241</span>
     </a>
@@ -119,17 +162,15 @@
     </a>
   </div>
 
-  <!-- SCRIPT TO RENDER ALL IMAGES -->
+  <!-- SCRIPT -->
   <script>
     window.addEventListener('DOMContentLoaded', () => {
-      // Splash screen logic
       setTimeout(() => {
         const splash = document.getElementById('splash-screen');
         splash.style.opacity = '0';
         setTimeout(() => splash.style.display = 'none', 700);
-      }, 2500);
+      }, 2000);
 
-      // 1. RINGS LIST
       const ringImages = [
         { name: "Alluring Scallop Gold Ring", file: "Alluring scallop Gold Ring.jpg" },
         { name: "Classy Ring", file: "Classy Ring.jpg" },
@@ -157,7 +198,6 @@
         { name: "Veltrix Solitaire Ring", file: "veltrix solitaire Ring.jpg" }
       ];
 
-      // 2. BANGLES & KADA LIST (Auto-matching for spaces & extension variations)
       const bangleImages = [
         { name: "Aarini Gold Bangle", file: "Aarini Gold Bangle.jpg" },
         { name: "Aaryan Gold Kada", file: "Aaryan Gold Kada.jpg" },
@@ -176,10 +216,9 @@
         { name: "Sparsha Gold Bangle", file: "Sparsha Gold Bangle.jpg" },
         { name: "Temple Treaser Gold Bangle", file: "Temple Treaser Gold Bangle.jpg" },
         { name: "Twilight Bliss Gold Bangle", file: "Twilight Bliss Gold Bangle.jpg" },
-        { name: "Urban Chevron Gold Bangle", file: "Urban Chevron  Gold Bangle.jpg" } // Fixed double space
+        { name: "Urban Chevron Gold Bangle", file: "Urban Chevron  Gold Bangle.jpg" }
       ];
 
-      // Function to render items with smart image error handling
       function renderGallery(items, containerId) {
         const container = document.getElementById(containerId);
         if(!container) return;
@@ -188,21 +227,19 @@
           const encodedFile = encodeURIComponent(item.file);
           const encodedText = encodeURIComponent(`Hi Sasural Jewellers, I am interested in ${item.name}`);
           
-          // Image alternate path fallbacks
           const altPng = encodeURIComponent(item.file.replace(/\.(jpg|jpeg)$/i, '.png'));
           const altJpeg = encodeURIComponent(item.file.replace(/\.jpg$/i, '.jpeg'));
-          const altClean = encodeURIComponent(item.name.trim() + '.jpg');
 
           html += `
-            <div class="group relative overflow-hidden rounded-sm border border-amber-900/30 bg-neutral-900/50 hover:border-amber-400/60 transition-all shadow-md">
-              <div class="aspect-square overflow-hidden bg-neutral-800">
+            <div class="product-card group relative overflow-hidden rounded-sm border border-amber-900/30 bg-neutral-900/50 hover:border-amber-400/60 transition-all shadow-md">
+              <div class="aspect-square overflow-hidden bg-neutral-800 cursor-pointer relative" onclick="openModal('${encodedFile}', '${item.name}')">
                 <img src="${encodedFile}" alt="${item.name}" 
-                     onerror="if(!this.dataset.retry1){this.dataset.retry1=true; this.src='${altPng}';} else if(!this.dataset.retry2){this.dataset.retry2=true; this.src='${altJpeg}';} else if(!this.dataset.retry3){this.dataset.retry3=true; this.src='${altClean}';}"
+                     onerror="if(!this.dataset.retry1){this.dataset.retry1=true; this.src='${altPng}';} else if(!this.dataset.retry2){this.dataset.retry2=true; this.src='${altJpeg}';}"
                      loading="lazy" 
                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
               </div>
               <div class="p-4 text-center">
-                <h3 class="text-sm font-serif text-amber-100 truncate">${item.name}</h3>
+                <h3 class="product-name text-sm font-serif text-amber-100 truncate">${item.name}</h3>
                 <a href="https://wa.me/918873274241?text=${encodedText}" 
                    target="_blank" 
                    class="mt-3 block w-full py-1.5 border border-amber-400/40 text-amber-300 text-xs uppercase hover:bg-amber-400 hover:text-black transition-all font-medium">
@@ -218,6 +255,30 @@
       renderGallery(ringImages, 'rings-grid');
       renderGallery(bangleImages, 'bangles-grid');
     });
+
+    // Zoom Image Modal Functions
+    function openModal(imgSrc, title) {
+      document.getElementById('modalImg').src = imgSrc;
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('imageModal').classList.remove('hidden');
+    }
+    function closeModal() {
+      document.getElementById('imageModal').classList.add('hidden');
+    }
+
+    // Search Filter
+    function filterProducts() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        const name = card.querySelector('.product-name').innerText.toLowerCase();
+        if(name.includes(input)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
   </script>
 </body>
 </html>
