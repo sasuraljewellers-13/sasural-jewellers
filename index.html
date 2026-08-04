@@ -80,6 +80,27 @@
     </div>
   </section>
 
+  <!-- HALLMARK BADGES BAR -->
+  <section class="py-6 border-y border-amber-900/30 bg-neutral-950/80">
+    <div class="max-w-4xl mx-auto flex justify-center items-center gap-8 md:gap-16 px-4">
+      <div class="flex items-center space-x-3">
+        <img src="bis-916.png" alt="BIS Hallmarked 916" class="w-12 h-12 md:w-16 md:h-16 object-contain rounded-full shadow-[0_0_10px_rgba(234,179,8,0.2)]">
+        <div>
+          <p class="text-xs md:text-sm font-bold text-amber-300">BIS 916 HALLMARKED</p>
+          <p class="text-[10px] md:text-xs text-neutral-400">Certified 22K Gold Jewellery</p>
+        </div>
+      </div>
+      <div class="h-8 w-[1px] bg-amber-900/40"></div>
+      <div class="flex items-center space-x-3">
+        <img src="bis-750.png" alt="BIS Hallmarked 750" class="w-12 h-12 md:w-16 md:h-16 object-contain rounded-full shadow-[0_0_10px_rgba(234,179,8,0.2)]">
+        <div>
+          <p class="text-xs md:text-sm font-bold text-amber-300">BIS 750 HALLMARKED</p>
+          <p class="text-[10px] md:text-xs text-neutral-400">Certified 18K Gold & Diamond</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- SEARCH BAR SECTION -->
   <section class="py-8 px-6 max-w-3xl mx-auto">
     <div class="relative">
@@ -121,13 +142,19 @@
         <span class="text-xs tracking-widest text-amber-400 uppercase">Visit Our Showroom</span>
         <h2 class="text-3xl font-serif text-amber-100">Sasural Jewellers Store</h2>
         <p class="text-neutral-400 text-sm leading-relaxed">
-          Experience our royal gold & silver collection in person. Visit our store for certified gold and pure silver ornaments.
+          Experience our royal gold & silver collection in person. Visit our store for certified hallmarked gold and pure silver ornaments.
         </p>
         <div class="space-y-2 text-sm text-amber-200/90 pt-2">
           <p>📍 <strong>Address:</strong> Tarapur, Near Shanker Vastralay, Bihar</p>
           <p>🕒 <strong>Store Timings:</strong> 10:30 AM - 8:30 PM (Open Daily)</p>
           <p>📞 <strong>Phone:</strong> +91 62062 17161</p>
           <p>💬 <strong>WhatsApp Gold:</strong> +91 88732 74241</p>
+        </div>
+
+        <!-- Hallmark Badges in Footer -->
+        <div class="pt-4 flex space-x-4 border-t border-amber-900/30">
+          <img src="bis-916.png" alt="BIS 916" class="w-12 h-12 object-contain rounded-full border border-amber-500/30">
+          <img src="bis-750.png" alt="BIS 750" class="w-12 h-12 object-contain rounded-full border border-amber-500/30">
         </div>
       </div>
       <div class="border border-amber-500/30 rounded-lg p-2 bg-neutral-900 overflow-hidden">
@@ -256,7 +283,6 @@
       renderGallery(bangleImages, 'bangles-grid');
     });
 
-    // Zoom Image Modal Functions
     function openModal(imgSrc, title) {
       document.getElementById('modalImg').src = imgSrc;
       document.getElementById('modalTitle').innerText = title;
@@ -266,7 +292,6 @@
       document.getElementById('imageModal').classList.add('hidden');
     }
 
-    // Search Filter
     function filterProducts() {
       const input = document.getElementById('searchInput').value.toLowerCase();
       const cards = document.querySelectorAll('.product-card');
