@@ -44,8 +44,8 @@
 
       <nav class="hidden md:flex space-x-8 text-xs tracking-widest uppercase text-amber-200/80">
         <a href="#home" class="hover:text-amber-400 transition-colors">Home</a>
-        <a href="#rings-section" class="hover:text-amber-400 transition-colors">Rings</a>
-        <a href="#bangles-section" class="hover:text-amber-400 transition-colors">Bangles</a>
+        <a href="#rings-section" class="hover:text-amber-400 transition-colors">Gold Rings</a>
+        <a href="#bangles-section" class="hover:text-amber-400 transition-colors">Gold Bangles & Kada</a>
         <a href="#contact" class="hover:text-amber-400 transition-colors">Contact</a>
       </nav>
 
@@ -97,7 +97,7 @@
   <section id="bangles-section" class="py-20 px-6 max-w-7xl mx-auto border-t border-amber-900/30">
     <div class="text-center mb-16">
       <h2 class="text-3xl md:text-4xl font-serif text-amber-200 tracking-wider mb-3">
-        Royal Gold Bangles & Kangan Collection
+        Royal Gold Bangles & Kada Collection
       </h2>
       <div class="w-20 h-0.5 bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto"></div>
     </div>
@@ -119,7 +119,7 @@
     </a>
   </div>
 
-  <!-- SCRIPT TO RENDER IMAGES IN SEPARATE HEADINGS -->
+  <!-- SCRIPT TO RENDER ALL IMAGES -->
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       // Splash screen logic
@@ -157,15 +157,32 @@
         { name: "Veltrix Solitaire Ring", file: "veltrix solitaire Ring.jpg" }
       ];
 
-      // 2. BANGLES LIST (Yahan Apni Uploaded Bangles Filenames daalein)
+      // 2. BANGLES & KADA LIST (ScreenShot Waali Sabhi Images)
       const bangleImages = [
-        { name: "Royal Gold Bangle Design #1", file: "bangle-1.jpg" },
-        { name: "Traditional Bridal Kangan", file: "bangle-2.jpg" }
+        { name: "Aarini Gold Bangle", file: "Aarini Gold Bangle.jpg" },
+        { name: "Aaryan Gold Kada", file: "Aaryan Gold Kada.jpg" },
+        { name: "Amrita Gold Bangle", file: "Amrita Gold Bangle.jpg" },
+        { name: "Emily Gold Bangle", file: "Emily Gold Bangle.jpg" },
+        { name: "Gagan Gold Kada", file: "Gagan Gold Kada.jpg" },
+        { name: "Glided Sparkle", file: "Glided Sparkle.jpg" },
+        { name: "Groovy Gold Bangle", file: "Groovy Gold Bangle.jpg" },
+        { name: "Groovy Texture Gold Bangle", file: "Groovy Texture Gold Bangle.jpg" },
+        { name: "Kanaki Gold Bangle", file: "Kanaki Gold Bangle.jpg" },
+        { name: "Ovina Gold Bangle", file: "Ovina Gold Bangle.jpg" },
+        { name: "Reena Gold Bangle", file: "Reena Gold bangle.jpg" },
+        { name: "Refined Glossy Gold Bangle", file: "Refined Glossy Gold Bangle.jpg" },
+        { name: "Regal Glow Bangle", file: "Regal Glow Bangle.jpg" },
+        { name: "Sonika Gold Bangle", file: "Sonika Gold Bangle.jpg" },
+        { name: "Sparsha Gold Bangle", file: "Sparsha Gold Bangle.jpg" },
+        { name: "Temple Treaser Gold Bangle", file: "Temple Treaser Gold Bangle.jpg" },
+        { name: "Twilight Bliss Gold Bangle", file: "Twilight Bliss Gold Bangle.jpg" },
+        { name: "Urban Chevron Gold Bangle", file: "Urban Chevron Gold Bangle.jpg" }
       ];
 
       // Function to render items
       function renderGallery(items, containerId) {
         const container = document.getElementById(containerId);
+        if(!container) return;
         let html = '';
         items.forEach((item) => {
           const encodedFile = encodeURIComponent(item.file);
@@ -174,7 +191,7 @@
             <div class="group relative overflow-hidden rounded-sm border border-amber-900/30 bg-neutral-900/50 hover:border-amber-400/60 transition-all shadow-md">
               <div class="aspect-square overflow-hidden bg-neutral-800">
                 <img src="${encodedFile}" alt="${item.name}" 
-                     onerror="this.onerror=null; this.src='https://placehold.co/400x400/1a1a1a/eab308?text=Gold+Bangle';"
+                     onerror="this.onerror=null; this.src='${encodeURIComponent(item.name + '.png')}';"
                      loading="lazy" 
                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
               </div>
@@ -192,7 +209,6 @@
         container.innerHTML = html;
       }
 
-      // Render both sections
       renderGallery(ringImages, 'rings-grid');
       renderGallery(bangleImages, 'bangles-grid');
     });
