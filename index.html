@@ -44,8 +44,9 @@
 
       <nav class="hidden md:flex space-x-8 text-xs tracking-widest uppercase text-amber-200/80">
         <a href="#home" class="hover:text-amber-400 transition-colors">Home</a>
+        <a href="#bracelets-section" class="hover:text-amber-400 transition-colors">Men's Bracelets</a>
         <a href="#rings-section" class="hover:text-amber-400 transition-colors">Gold Rings</a>
-        <a href="#bangles-section" class="hover:text-amber-400 transition-colors">Gold Bangles & Kada</a>
+        <a href="#bangles-section" class="hover:text-amber-400 transition-colors">Bangles & Kada</a>
         <a href="#store-address" class="hover:text-amber-400 transition-colors">Visit Store</a>
       </nav>
 
@@ -69,12 +70,15 @@
       <h1 class="text-4xl md:text-7xl font-serif font-light text-amber-100 mb-6 leading-tight">
         Luxury Gold & Silver Jewellery
       </h1>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="#rings-section" class="bg-gradient-to-r from-amber-400 to-yellow-600 text-black font-semibold px-8 py-3.5 text-xs tracking-widest uppercase hover:brightness-110 transition-all shadow-[0_0_20px_rgba(234,179,8,0.3)]">
-          Explore Rings
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="#bracelets-section" class="bg-gradient-to-r from-amber-400 to-yellow-600 text-black font-semibold px-8 py-3.5 text-xs tracking-widest uppercase hover:brightness-110 transition-all shadow-[0_0_20px_rgba(234,179,8,0.3)]">
+          Men's Bracelets
+        </a>
+        <a href="#rings-section" class="border border-amber-400 text-amber-300 font-semibold px-8 py-3.5 text-xs tracking-widest uppercase hover:bg-amber-400 hover:text-black transition-all">
+          Gold Rings
         </a>
         <a href="#bangles-section" class="border border-amber-400 text-amber-300 font-semibold px-8 py-3.5 text-xs tracking-widest uppercase hover:bg-amber-400 hover:text-black transition-all">
-          Explore Bangles
+          Gold Bangles
         </a>
       </div>
     </div>
@@ -84,7 +88,7 @@
   <section class="py-6 border-y border-amber-900/30 bg-neutral-950/80">
     <div class="max-w-4xl mx-auto flex justify-center items-center gap-8 md:gap-16 px-4">
       <div class="flex items-center space-x-3">
-        <img src="bis-916.png" alt="BIS Hallmarked 916" class="w-12 h-12 md:w-16 md:h-16 object-contain rounded-full shadow-[0_0_10px_rgba(234,179,8,0.2)]">
+        <img src="bis-916.png" alt="BIS 916" onerror="this.src='bis%20hallmarked%20-916.png';" class="w-12 h-12 md:w-16 md:h-16 object-contain rounded-full shadow-[0_0_10px_rgba(234,179,8,0.2)]">
         <div>
           <p class="text-xs md:text-sm font-bold text-amber-300">BIS 916 HALLMARKED</p>
           <p class="text-[10px] md:text-xs text-neutral-400">Certified 22K Gold Jewellery</p>
@@ -92,7 +96,7 @@
       </div>
       <div class="h-8 w-[1px] bg-amber-900/40"></div>
       <div class="flex items-center space-x-3">
-        <img src="bis-750.png" alt="BIS Hallmarked 750" class="w-12 h-12 md:w-16 md:h-16 object-contain rounded-full shadow-[0_0_10px_rgba(234,179,8,0.2)]">
+        <img src="bis-750.png" alt="BIS 750" onerror="this.src='bis%20hallmarked%20-750.png';" class="w-12 h-12 md:w-16 md:h-16 object-contain rounded-full shadow-[0_0_10px_rgba(234,179,8,0.2)]">
         <div>
           <p class="text-xs md:text-sm font-bold text-amber-300">BIS 750 HALLMARKED</p>
           <p class="text-[10px] md:text-xs text-neutral-400">Certified 18K Gold & Diamond</p>
@@ -104,13 +108,27 @@
   <!-- SEARCH BAR SECTION -->
   <section class="py-8 px-6 max-w-3xl mx-auto">
     <div class="relative">
-      <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="🔍 Search Rings, Bangles or Kada by name..." 
+      <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="🔍 Search Men's Bracelets, Rings, Bangles or Kada..." 
         class="w-full bg-neutral-900 border border-amber-500/40 rounded-full py-3 px-6 text-sm text-amber-100 placeholder-amber-400/50 focus:outline-none focus:border-amber-400 shadow-[0_0_15px_rgba(234,179,8,0.1)]">
     </div>
   </section>
 
-  <!-- 4. SECTION 1: GOLD RINGS GALLERY -->
-  <section id="rings-section" class="py-12 px-6 max-w-7xl mx-auto">
+  <!-- SECTION 1: MEN'S GOLD BRACELETS GALLERY -->
+  <section id="bracelets-section" class="py-12 px-6 max-w-7xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-serif text-amber-200 tracking-wider mb-3">
+        Royal Men's Gold Bracelets Collection
+      </h2>
+      <p class="text-xs text-amber-400/70 tracking-widest uppercase">Bold & Elegant Designs for Men</p>
+      <div class="w-20 h-0.5 bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto mt-3"></div>
+    </div>
+
+    <!-- Bracelets Grid -->
+    <div id="bracelets-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+  </section>
+
+  <!-- SECTION 2: GOLD RINGS GALLERY -->
+  <section id="rings-section" class="py-12 px-6 max-w-7xl mx-auto border-t border-amber-900/30">
     <div class="text-center mb-12">
       <h2 class="text-3xl md:text-4xl font-serif text-amber-200 tracking-wider mb-3">
         Exclusive Gold Rings Collection
@@ -122,7 +140,7 @@
     <div id="rings-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
   </section>
 
-  <!-- 5. SECTION 2: GOLD BANGLES GALLERY -->
+  <!-- SECTION 3: GOLD BANGLES GALLERY -->
   <section id="bangles-section" class="py-12 px-6 max-w-7xl mx-auto border-t border-amber-900/30">
     <div class="text-center mb-12">
       <h2 class="text-3xl md:text-4xl font-serif text-amber-200 tracking-wider mb-3">
@@ -151,10 +169,9 @@
           <p>💬 <strong>WhatsApp Gold:</strong> +91 88732 74241</p>
         </div>
 
-        <!-- Hallmark Badges in Footer -->
         <div class="pt-4 flex space-x-4 border-t border-amber-900/30">
-          <img src="bis-916.png" alt="BIS 916" class="w-12 h-12 object-contain rounded-full border border-amber-500/30">
-          <img src="bis-750.png" alt="BIS 750" class="w-12 h-12 object-contain rounded-full border border-amber-500/30">
+          <img src="bis-916.png" alt="BIS 916" onerror="this.src='bis%20hallmarked%20-916.png';" class="w-12 h-12 object-contain rounded-full border border-amber-500/30">
+          <img src="bis-750.png" alt="BIS 750" onerror="this.src='bis%20hallmarked%20-750.png';" class="w-12 h-12 object-contain rounded-full border border-amber-500/30">
         </div>
       </div>
       <div class="border border-amber-500/30 rounded-lg p-2 bg-neutral-900 overflow-hidden">
@@ -198,6 +215,42 @@
         setTimeout(() => splash.style.display = 'none', 700);
       }, 2000);
 
+      // BRACELETS DATA (Supports png, jpg & webp automatically)
+      const braceletImages = [
+        { name: "Alluring Gold Bracelet for Men", file: "Alluring Gold Bracelet for Men" },
+        { name: "Amorous Gold Bracelet for Men", file: "Amorous Gold Bracelet for Men" },
+        { name: "Artisanal Textured Gold Bracelet for Men", file: "Artisanal Textured Gold Bracelet for Men" },
+        { name: "Bold Chevron Gold Bracelet for Men", file: "Bold Chevron Gold Bracelet for Men" },
+        { name: "Bold Geometric Gold Bracelet for Men", file: "Bold Geometric Gold Bracelet for Men" },
+        { name: "Bold Matrix Gold Bracelet for Men", file: "Bold Matrix Gold Bracelet for Men" },
+        { name: "Classy Bracelet For Men", file: "Classy Bracelet For Men" },
+        { name: "Contemporary Block Gold Bracelet for Men", file: "Contemporary Block Gold Bracelet for Men" },
+        { name: "Elegant Gold Bracelet for Men", file: "Elegant Gold Bracelet for Men" },
+        { name: "Exquisite Gold Bracelet for Men", file: "Exquisite Gold Bracelet for Men" },
+        { name: "Geometric Flow Gold Bracelet for Men", file: "Geometric Flow Gold Bracelet for Men" },
+        { name: "Geometric Weave Gold Bracelet for Men", file: "Geometric Weave Gold Bracelet for Men" },
+        { name: "Grid Link Gold Bracelet for Men", file: "Grid Link Gold Bracelet for Men" },
+        { name: "Heritage Chevron Gold Bracelet for Men", file: "Heritage Chevron Gold Bracelet for Men" },
+        { name: "Interlocking Gold Bracelet for Men", file: "Interlocking Gold Bracelet for Men" },
+        { name: "Linear Code Gold Bracelet for Men", file: "Linear Code Gold Bracelet for Men" },
+        { name: "Linear Edge Gold Bracelet for Men", file: "Linear Edge Gold Bracelet for Men" },
+        { name: "Linear Weave Gold Bracelet for Men", file: "Linear Weave Gold Bracelet for Men" },
+        { name: "Link Chain Style Gold Bracelet For Men", file: "Link Chain Style Gold Bracelet For Men" },
+        { name: "Lunar Pattern Gold Bracelet for Men", file: "Lunar Pattern Gold Bracelet for Men" },
+        { name: "Majestic Statement Gold Bracelet for Men", file: "Majestic Statement Gold Bracelet for Men" },
+        { name: "Modern Grid Gold Bracelet for Men", file: "Modern Grid Gold Bracelet for Men" },
+        { name: "Power Link Gold Bracelet for Men", file: "Power Link Gold Bracelet for Men" },
+        { name: "Power Links Gold Bracelet for Men", file: "Power Links Gold Bracelet for Men" },
+        { name: "Power Statement Gold Bracelet for Men", file: "Power Statement Gold Bracelet for Men" },
+        { name: "Regal Figaro Gold Bracelet for Men", file: "Regal Figaro Gold Bracelet for Men" },
+        { name: "Sculpted Link Gold Bracelet for Men", file: "Sculpted Link Gold Bracelet for Men" },
+        { name: "Smooth Grid Gold Bracelet for Men", file: "Smooth Grid Gold Bracelet for Men" },
+        { name: "Splendid Gold Bracelet For Men", file: "Splendid Gold Bracelet For Men" },
+        { name: "Statement Link Gold Bracelet for Men", file: "Statement Link Gold Bracelet for Men" },
+        { name: "Structured Grid Gold Bracelet for Men", file: "Structured Grid Gold Bracelet for Men" },
+        { name: "Unique Style Link Gold Bracelet For Men", file: "Unique Style Link Gold Bracelet For Men" }
+      ];
+
       const ringImages = [
         { name: "Alluring Scallop Gold Ring", file: "Alluring scallop Gold Ring.jpg" },
         { name: "Classy Ring", file: "Classy Ring.jpg" },
@@ -227,10 +280,10 @@
 
       const bangleImages = [
         { name: "Aarini Gold Bangle", file: "Aarini Gold Bangle.jpg" },
-        { name: "Aaryan Gold Kada", file: "Aaryan Gold Kada.jpg" },
+        { name: "Aaryan Gold Kada", file: "Aaryan Gold Kada.png" },
         { name: "Amrita Gold Bangle", file: "Amrita Gold Bangle.jpg" },
         { name: "Emily Gold Bangle", file: "Emily Gold Bangle.jpg" },
-        { name: "Gagan Gold Kada", file: "Gagan Gold Kada.jpg" },
+        { name: "Gagan Gold Kada", file: "Gagan Gold Kada.png" },
         { name: "Glided Sparkle", file: "Glided Sparkle.jpg" },
         { name: "Groovy Gold Bangle", file: "Groovy Gold Bangle.jpg" },
         { name: "Groovy Texture Gold Bangle", file: "Groovy Texture Gold Bangle.jpg" },
@@ -246,22 +299,19 @@
         { name: "Urban Chevron Gold Bangle", file: "Urban Chevron  Gold Bangle.jpg" }
       ];
 
-      function renderGallery(items, containerId) {
-        const container = document.getElementById(containerId);
+      function renderBracelets(items) {
+        const container = document.getElementById('bracelets-grid');
         if(!container) return;
         let html = '';
         items.forEach((item) => {
-          const encodedFile = encodeURIComponent(item.file);
+          const baseName = encodeURIComponent(item.file);
           const encodedText = encodeURIComponent(`Hi Sasural Jewellers, I am interested in ${item.name}`);
           
-          const altPng = encodeURIComponent(item.file.replace(/\.(jpg|jpeg)$/i, '.png'));
-          const altJpeg = encodeURIComponent(item.file.replace(/\.jpg$/i, '.jpeg'));
-
           html += `
             <div class="product-card group relative overflow-hidden rounded-sm border border-amber-900/30 bg-neutral-900/50 hover:border-amber-400/60 transition-all shadow-md">
-              <div class="aspect-square overflow-hidden bg-neutral-800 cursor-pointer relative" onclick="openModal('${encodedFile}', '${item.name}')">
-                <img src="${encodedFile}" alt="${item.name}" 
-                     onerror="if(!this.dataset.retry1){this.dataset.retry1=true; this.src='${altPng}';} else if(!this.dataset.retry2){this.dataset.retry2=true; this.src='${altJpeg}';}"
+              <div class="aspect-square overflow-hidden bg-neutral-800 cursor-pointer relative" onclick="openModal('${baseName}.png', '${item.name}')">
+                <img src="${baseName}.png" alt="${item.name}" 
+                     onerror="if(!this.dataset.step){this.dataset.step=1; this.src='${baseName}.webp';} else if(this.dataset.step=='1'){this.dataset.step=2; this.src='${baseName}.jpg';} else if(this.dataset.step=='2'){this.dataset.step=3; this.src='${baseName}.jpeg';}"
                      loading="lazy" 
                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
               </div>
@@ -279,6 +329,34 @@
         container.innerHTML = html;
       }
 
+      function renderGallery(items, containerId) {
+        const container = document.getElementById(containerId);
+        if(!container) return;
+        let html = '';
+        items.forEach((item) => {
+          const encodedFile = encodeURIComponent(item.file);
+          const encodedText = encodeURIComponent(`Hi Sasural Jewellers, I am interested in ${item.name}`);
+          
+          html += `
+            <div class="product-card group relative overflow-hidden rounded-sm border border-amber-900/30 bg-neutral-900/50 hover:border-amber-400/60 transition-all shadow-md">
+              <div class="aspect-square overflow-hidden bg-neutral-800 cursor-pointer relative" onclick="openModal('${encodedFile}', '${item.name}')">
+                <img src="${encodedFile}" alt="${item.name}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              </div>
+              <div class="p-4 text-center">
+                <h3 class="product-name text-sm font-serif text-amber-100 truncate">${item.name}</h3>
+                <a href="https://wa.me/918873274241?text=${encodedText}" 
+                   target="_blank" 
+                   class="mt-3 block w-full py-1.5 border border-amber-400/40 text-amber-300 text-xs uppercase hover:bg-amber-400 hover:text-black transition-all font-medium">
+                  Enquire on WhatsApp
+                </a>
+              </div>
+            </div>
+          `;
+        });
+        container.innerHTML = html;
+      }
+
+      renderBracelets(braceletImages);
       renderGallery(ringImages, 'rings-grid');
       renderGallery(bangleImages, 'bangles-grid');
     });
