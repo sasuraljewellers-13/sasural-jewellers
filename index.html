@@ -14,27 +14,60 @@
     }
     .animate-glow { animation: pulseGlow 2.5s infinite; }
   /* IMAGE POPUP (MODAL) STYLES */
+    /* MODAL CONTAINER */
     #imageModal {
-      display: none; /* Default hidden */
+      display: none;
       position: fixed;
-      z-index: 9999; /* Sabse upar */
-      padding-top: 50px;
+      z-index: 9999;
       left: 0;
       top: 0;
       width: 100%;
       height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.9); /* Black background with opacity */
+      background-color: rgba(0, 0, 0, 0.9);
+      /* Screen ke center me image rakhne ke liye */
+      display: none; 
+      justify-content: center;
+      align-items: center;
     }
 
+    /* MODAL CONTAINER */
+    #imageModal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      /* Screen ke center me image rakhne ke liye */
+      display: none; 
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* MODAL IMAGE (LAPTOP & MOBILE OPTIMIZED) */
     #modalImage {
       margin: auto;
       display: block;
-      width: 80%;
-      max-width: 1000px;
-      border: 4px solid #fbbf24; /* Amber border */
+      /* Laptop Screen Fix: Width aur Height max limit me rahegi */
+      max-width: 50vw !important;  /* Laptop Screen ki sirf 50% width hi lega */
+      max-height: 70vh !important; /* Laptop Screen ki 70% height hi lega */
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      
+      border: 3px solid #fbbf24;
       border-radius: 8px;
-      box-shadow: 0 0 30px rgba(251, 191, 36, 0.5);
+      box-shadow: 0 0 25px rgba(251, 191, 36, 0.4);
+    }
+
+    /* MOBILE EXTRA FIX (Mobile me thoda bada dikhane ke liye) */
+    @media (max-width: 768px) {
+      #modalImage {
+        max-width: 85vw !important; /* Mobile me normal fit rahega */
+        max-height: 75vh !important;
+      }
     }
 
     #closeModal {
