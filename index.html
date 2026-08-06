@@ -13,7 +13,62 @@
       50% { opacity: 0.7; transform: scale(1.05); }
     }
     .animate-glow { animation: pulseGlow 2.5s infinite; }
-  </style>
+  /* IMAGE POPUP (MODAL) STYLES */
+    #imageModal {
+      display: none; /* Default hidden */
+      position: fixed;
+      z-index: 9999; /* Sabse upar */
+      padding-top: 50px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9); /* Black background with opacity */
+    }
+
+    #modalImage {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 1000px;
+      border: 4px solid #fbbf24; /* Amber border */
+      border-radius: 8px;
+      box-shadow: 0 0 30px rgba(251, 191, 36, 0.5);
+    }
+
+    #closeModal {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #fbbf24;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    #closeModal:hover,
+    #closeModal:focus {
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* Zoom effect on main grid images */
+    .jewelry-item img {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .jewelry-item img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }</style><!-- IMAGE ZOOM MODAL (POPUP) -->
+  <div id="imageModal">
+    <span id="closeModal">&times;</span>
+    <img id="modalImage" src="" alt="Zoomed Jewelry Image">
+  </div>
 </head>
 <body class="bg-[#0a0a0a] text-amber-50 font-sans selection:bg-amber-500 selection:text-black">
 
@@ -394,6 +449,27 @@
         }
       });
     }
+    // Dynamic & Static Images dono ke liye Popup Logic
+  document.addEventListener("click", function (e) {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+
+    if (e.target.tagName === "IMG" && e.target.id !== "modalImage" && !e.target.src.includes("bis")) {
+      modal.style.display = "flex";
+      modalImg.src = e.target.src;
+    }
+
+    if (e.target.id === "closeModal" || e.target.id === "imageModal") {
+      modal.style.display = "none";
+    }
+  });
+
+  document.addEventListener("keydown", function (e) {
+    const modal = document.getElementById("imageModal");
+    if (e.key === "Escape" && modal) {
+      modal.style.display = "none";
+    }
+  });
   </script>
 </body>
 </html>
