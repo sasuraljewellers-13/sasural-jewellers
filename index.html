@@ -1,20 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sasural Jewellers | Luxury Gold & Silver Jewellery</title>
-  <!-- Tailwind CSS CDN -->
+  <title>Sasural Jewellers - Pure & Hallmarked Gold & Silver Jewellery</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    html { scroll-behavior: smooth; }
-    @keyframes pulseGlow {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.7; transform: scale(1.05); }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0a0a0a;
+      color: #e5e5e5;
     }
-    .animate-glow { animation: pulseGlow 2.5s infinite; }
-  /* IMAGE POPUP (MODAL) STYLES */
-    /* MODAL CONTAINER */
+    .font-serif {
+      font-family: 'Cinzel', serif;
+    }
+    
+    /* IMAGE POPUP (MODAL) STYLES */
     #imageModal {
       display: none;
       position: fixed;
@@ -23,661 +25,220 @@
       top: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.9);
-      /* Screen ke center me image rakhne ke liye */
-      display: none; 
+      background-color: rgba(0, 0, 0, 0.92);
+      padding: 20px;
       justify-content: center;
       align-items: center;
     }
 
-    /* MODAL CONTAINER */
-    #imageModal {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.9);
-      /* Screen ke center me image rakhne ke liye */
-      display: none; 
-      justify-content: center;
-      align-items: center;
+    #closeModal {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fbbf24;
+      font-size: 45px;
+      font-weight: bold;
+      transition: 0.2s;
+      cursor: pointer;
+      z-index: 10000;
     }
 
-    /* MODAL IMAGE (LAPTOP & MOBILE OPTIMIZED) */
+    #closeModal:hover {
+      color: #ffffff;
+    }
+
+    /* COMFORTABLE IMAGE SIZE FOR LAPTOP & MOBILE */
     #modalImage {
       margin: auto;
       display: block;
-      /* Laptop Screen Fix: Width aur Height max limit me rahegi */
-      max-width: 50vw !important;  /* Laptop Screen ki sirf 50% width hi lega */
-      max-height: 70vh !important; /* Laptop Screen ki 70% height hi lega */
+      max-width: 50vw !important;  /* Laptop Screen width 50% max */
+      max-height: 75vh !important; /* Laptop Screen height 75% max */
       width: auto;
       height: auto;
       object-fit: contain;
-      
       border: 3px solid #fbbf24;
       border-radius: 8px;
       box-shadow: 0 0 25px rgba(251, 191, 36, 0.4);
     }
 
-    /* MOBILE EXTRA FIX (Mobile me thoda bada dikhane ke liye) */
     @media (max-width: 768px) {
       #modalImage {
-        max-width: 85vw !important; /* Mobile me normal fit rahega */
-        max-height: 75vh !important;
+        max-width: 88vw !important; /* Mobile Screen width 88% */
+        max-height: 80vh !important;
+      }
+      #closeModal {
+        top: 10px;
+        right: 15px;
+        font-size: 36px;
       }
     }
 
-    #closeModal {
-      position: absolute;
-      top: 15px;
-      right: 35px;
-      color: #fbbf24;
-      font-size: 40px;
-      font-weight: bold;
-      transition: 0.3s;
-      cursor: pointer;
-    }
-
-    #closeModal:hover,
-    #closeModal:focus {
-      color: #fff;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    /* Zoom effect on main grid images */
     .jewelry-item img {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
     }
 
     .jewelry-item img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-    }</style><!-- IMAGE ZOOM MODAL (POPUP) -->
-  <div id="imageModal">
-    <span id="closeModal">&times;</span>
-    <img id="modalImage" src="" alt="Zoomed Jewelry Image">
-  </div>
+      transform: scale(1.03);
+    }
+  </style>
 </head>
-<body class="bg-[#0a0a0a] text-amber-50 font-sans selection:bg-amber-500 selection:text-black">
+<body class="bg-neutral-950 text-neutral-100 antialiased min-h-screen flex flex-col justify-between">
 
-  <!-- 1. INTRO SPLASH SCREEN -->
-  <div id="splash-screen" class="fixed inset-0 bg-black flex flex-col items-center justify-center z-50 transition-opacity duration-700">
-    <div class="text-6xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-600 animate-glow tracking-widest drop-shadow-[0_0_20px_rgba(234,179,8,0.6)]">
-      SJ
-    </div>
-    <div class="mt-4 text-xl tracking-[0.3em] font-light text-amber-100 uppercase">
-      Sasural Jewellers
-    </div>
-    <div class="mt-6 text-xs text-amber-400/60 tracking-widest uppercase">
-      Crafting Royal Heritage
-    </div>
-  </div>
-
-  <!-- 2. NAVBAR -->
-  <header class="fixed top-0 w-full bg-black/80 backdrop-blur-md z-40 border-b border-amber-900/30">
+  <!-- NAVIGATION HEADER -->
+  <header class="border-b border-amber-900/40 bg-neutral-900/80 backdrop-blur sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
       <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 border border-amber-400/60 rounded-full flex items-center justify-center text-amber-400 font-serif font-bold text-lg shadow-[0_0_10px_rgba(251,191,36,0.3)]">
-          SJ
-        </div>
-        <span class="text-xl font-serif tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-500 font-bold">
-          SASURAL JEWELLERS
-        </span>
+        <h1 class="text-xl md:text-2xl font-serif text-amber-300 tracking-wider">SASURAL JEWELLERS</h1>
       </div>
-
-      <nav class="hidden md:flex space-x-8 text-xs tracking-widest uppercase text-amber-200/80">
-        <a href="#home" class="hover:text-amber-400 transition-colors">Home</a>
-        <a href="#bracelets-section" class="hover:text-amber-400 transition-colors">Men's Bracelets</a>
-        <a href="#rings-section" class="hover:text-amber-400 transition-colors">Gold Rings</a>
-        <a href="#bangles-section" class="hover:text-amber-400 transition-colors">Bangles & Kada</a>
-        <a href="#store-address" class="hover:text-amber-400 transition-colors">Visit Store</a>
-      </nav>
-
-      <div class="flex items-center space-x-2">
-        <a href="tel:6206217161" class="border border-amber-400/60 text-amber-300 px-3 py-1.5 text-xs tracking-widest uppercase hover:bg-amber-400 hover:text-black transition-all rounded-sm">
-          <span>📞 Call Us</span>
-        </a>
+      <div class="hidden md:flex space-x-6 text-xs uppercase tracking-widest text-amber-200/80 font-medium">
+        <a href="#bracelets-section" class="hover:text-amber-400 transition">Men's Bracelets</a>
+        <a href="#store-address" class="hover:text-amber-400 transition">Visit Showroom</a>
       </div>
     </div>
   </header>
 
-  <!-- 3. HERO SECTION -->
-  <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
-    <div class="absolute inset-0 bg-cover bg-center filter brightness-40" style="background-image: url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=2070');"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/40 to-black/70"></div>
-
-    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
-      <p class="text-xs md:text-sm tracking-[0.4em] uppercase text-amber-400 mb-4">
-        Timeless Elegance & Royal Heritage
-      </p>
-      <h1 class="text-4xl md:text-7xl font-serif font-light text-amber-100 mb-6 leading-tight">
-        Luxury Gold & Silver Jewellery
-      </h1>
-      <div class="flex flex-wrap gap-4 justify-center">
-        <a href="#bracelets-section" class="bg-gradient-to-r from-amber-400 to-yellow-600 text-black font-semibold px-8 py-3.5 text-xs tracking-widest uppercase hover:brightness-110 transition-all shadow-[0_0_20px_rgba(234,179,8,0.3)]">
-          Men's Bracelets
-        </a>
-        <a href="#rings-section" class="border border-amber-400 text-amber-300 font-semibold px-8 py-3.5 text-xs tracking-widest uppercase hover:bg-amber-400 hover:text-black transition-all">
-          Gold Rings
-        </a>
-        <a href="#bangles-section" class="border border-amber-400 text-amber-300 font-semibold px-8 py-3.5 text-xs tracking-widest uppercase hover:bg-amber-400 hover:text-black transition-all">
-          Gold Bangles
-        </a>
+  <!-- MAIN CONTENT -->
+  <main class="flex-grow">
+    
+    <!-- SECTION 1: MEN'S GOLD BRACELETS GALLERY -->
+    <section id="bracelets-section" class="py-12 px-6 max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-serif text-amber-200 tracking-wider mb-3">Royal Men's Gold Bracelets Collection</h2>
+        <p class="text-xs text-amber-400/80 tracking-widest uppercase">BOLD & ELEGANT DESIGNS FOR MEN</p>
+        <div class="w-16 h-0.5 bg-amber-500/50 mx-auto mt-2"></div>
       </div>
-    </div>
-  </section>
 
-  <!-- HALLMARK BADGES BAR -->
-  <section class="py-6 border-y border-amber-900/30 bg-neutral-950/80">
-    <div class="max-w-4xl mx-auto flex justify-center items-center gap-8 md:gap-16 px-4">
-      <div class="flex items-center space-x-3">
-        <img src="bis-916.png" alt="BIS 916" onerror="this.src='bis%20hallmarked%20-916.png';" class="w-12 h-12 md:w-16 md:h-16 object-contain rounded-full shadow-[0_0_10px_rgba(234,179,8,0.2)]">
-        <div>
-          <p class="text-xs md:text-sm font-bold text-amber-300">BIS 916 HALLMARKED</p>
-          <p class="text-[10px] md:text-xs text-neutral-400">Certified 22K Gold Jewellery</p>
-        </div>
-      </div>
-      <div class="h-8 w-[1px] bg-amber-900/40"></div>
-      <div class="flex items-center space-x-3">
-        <img src="bis-750.png" alt="BIS 750" onerror="this.src='bis%20hallmarked%20-750.png';" class="w-12 h-12 md:w-16 md:h-16 object-contain rounded-full shadow-[0_0_10px_rgba(234,179,8,0.2)]">
-        <div>
-          <p class="text-xs md:text-sm font-bold text-amber-300">BIS 750 HALLMARKED</p>
-          <p class="text-[10px] md:text-xs text-neutral-400">Certified 18K Gold & Diamond</p>
-        </div>
-      </div>
-    </div>
-  </section>
+      <!-- BRACELETS GRID (4 ITEMS CLEAR SEQUENCE) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-  <!-- SEARCH BAR SECTION -->
-  <section class="py-8 px-6 max-w-3xl mx-auto">
-    <div class="relative">
-      <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="🔍 Search Men's Bracelets, Rings, Bangles or Kada..." 
-        class="w-full bg-neutral-900 border border-amber-500/40 rounded-full py-3 px-6 text-sm text-amber-100 placeholder-amber-400/50 focus:outline-none focus:border-amber-400 shadow-[0_0_15px_rgba(234,179,8,0.1)]">
-    </div>
-  </section>
-
- <!-- SECTION 1: MEN'S GOLD BRACELETS GALLERY -->
-<section id="bracelets-section" class="py-12 px-6 max-w-7xl mx-auto">
-  <div class="text-center mb-12">
-    <h2 class="text-3xl md:text-4xl font-serif text-amber-200 tracking-wider mb-3">Royal Men's Gold Bracelets Collection</h2>
-    <p class="text-xs text-amber-400/80 tracking-widest uppercase">BOLD & ELEGANT DESIGNS FOR MEN</p>
-    <div class="w-16 h-0.5 bg-amber-500/50 mx-auto mt-2"></div>
-  </div>
-
-  <!-- ROYAL MEN'S GOLD BRACELETS COLLECTION GRID -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
-    <!-- 1. Amorous Gold Bracelet -->
-    <div class="jewelry-item space-y-3 bg-neutral-900 border border-amber-900/50 p-4 rounded-xl shadow-lg">
-      <img src="men-bracelet-2.png" alt="Amorous Gold Bracelet for Men" class="w-full h-auto rounded-lg object-contain cursor-pointer">
-      <div class="pt-2 border-t border-amber-900/30 text-center">
-        <h3 class="text-sm font-serif text-amber-200">Amorous Gold Bracelet for Men</h3>
-        <p class="text-xs text-neutral-400 mt-1">Bold & Detailed design.</p>
-      </div>
-      <a href="https://wa.me/918873274241?text=Hi,%20I'm%20interested%20in%20Amorous%20Gold%20Bracelet" target="_blank" class="block w-full text-center bg-black text-amber-300 border border-amber-600/50 text-[10px] tracking-widest uppercase font-semibold py-2.5 rounded transition hover:bg-amber-950">
-        ENQUIRE ON WHATSAPP
-      </a>
-    </div>
-
-    <!-- 2. Artisanal Textured Gold Bracelet -->
-    <div class="jewelry-item space-y-3 bg-neutral-900 border border-amber-900/50 p-4 rounded-xl shadow-lg">
-      <img src="men-bracelet-3.png" alt="Artisanal Textured Gold Bracelet for Men" class="w-full h-auto rounded-lg object-contain cursor-pointer">
-      <div class="pt-2 border-t border-amber-900/30 text-center">
-        <h3 class="text-sm font-serif text-amber-200">Artisanal Textured Gold Bracelet for Men</h3>
-        <p class="text-xs text-neutral-400 mt-1">Premium Textured finish.</p>
-      </div>
-      <a href="https://wa.me/918873274241?text=Hi,%20I'm%20interested%20in%20Artisanal%20Textured%20Gold%20Bracelet" target="_blank" class="block w-full text-center bg-black text-amber-300 border border-amber-600/50 text-[10px] tracking-widest uppercase font-semibold py-2.5 rounded transition hover:bg-amber-950">
-        ENQUIRE ON WHATSAPP
-      </a>
-    </div>
-
-    <!-- 3. Bold Chevron Gold Bracelet -->
-    <div class="jewelry-item space-y-3 bg-neutral-900 border border-amber-900/50 p-4 rounded-xl shadow-lg">
-      <img src="men-bracelet-4.png" alt="Bold Chevron Gold Bracelet for Men" class="w-full h-auto rounded-lg object-contain cursor-pointer">
-      <div class="pt-2 border-t border-amber-900/30 text-center">
-        <h3 class="text-sm font-serif text-amber-200">Bold Chevron Gold Bracelet for Men</h3>
-        <p class="text-xs text-neutral-400 mt-1">Powerful Chevron statement.</p>
-      </div>
-      <a href="https://wa.me/918873274241?text=Hi,%20I'm%20interested%20in%20Bold%20Chevron%20Gold%20Bracelet" target="_blank" class="block w-full text-center bg-black text-amber-300 border border-amber-600/50 text-[10px] tracking-widest uppercase font-semibold py-2.5 rounded transition hover:bg-amber-950">
-        ENQUIRE ON WHATSAPP
-      </a>
-    </div>
-
-    <!-- 4. Alluring Gold Bracelet (THIN DESIGN SHIFTED TO LAST) -->
-    <div class="jewelry-item space-y-3 bg-neutral-900 border border-amber-900/50 p-4 rounded-xl shadow-lg">
-      <img src="men-bracelet-1.png" alt="Alluring Gold Bracelet for Men" class="w-full h-auto rounded-lg object-contain cursor-pointer">
-      <div class="pt-2 border-t border-amber-900/30 text-center">
-        <h3 class="text-sm font-serif text-amber-200">Alluring Gold Bracelet for Men</h3>
-        <p class="text-xs text-neutral-400 mt-1">Classic Thin chain design.</p>
-      </div>
-      <a href="https://wa.me/918873274241?text=Hi,%20I'm%20interested%20in%20Alluring%20Gold%20Bracelet" target="_blank" class="block w-full text-center bg-black text-amber-300 border border-amber-600/50 text-[10px] tracking-widest uppercase font-semibold py-2.5 rounded transition hover:bg-amber-950">
-        ENQUIRE ON WHATSAPP
-      </a>
-    </div>
-
-  </div>
-</section>
-
-  <!-- 1. Amorous Gold Bracelet -->
-  <div class="jewelry-item space-y-3 bg-neutral-900 border border-amber-900/50 p-4 rounded-xl shadow-lg">
-    <img src="men-bracelet-2.png" alt="Amorous Gold Bracelet for Men" class="w-full h-auto rounded-lg object-contain">
-    <div class="pt-2 border-t border-amber-900/30 text-center">
-      <h3 class="text-sm font-serif text-amber-200">Amorous Gold Bracelet for Men</h3>
-      <p class="text-xs text-neutral-400 mt-1">Bold & Detailed design.</p>
-    </div>
-    <a href="https://wa.me/918873274241?text=Hi,%20I'm%20interested%20in%20Amorous%20Gold%20Bracelet" target="_blank" class="block w-full text-center bg-black text-amber-300 border border-amber-600/50 text-[10px] tracking-widest uppercase font-semibold py-2.5 rounded transition hover:bg-amber-950">
-      ENQUIRE ON WHATSAPP
-    </a>
-  </div>
-
-  <!-- 2. Artisanal Textured Gold Bracelet -->
-  <div class="jewelry-item space-y-3 bg-neutral-900 border border-amber-900/50 p-4 rounded-xl shadow-lg">
-    <img src="men-bracelet-3.png" alt="Artisanal Textured Gold Bracelet for Men" class="w-full h-auto rounded-lg object-contain">
-    <div class="pt-2 border-t border-amber-900/30 text-center">
-      <h3 class="text-sm font-serif text-amber-200">Artisanal Textured Gold Bracelet for Men</h3>
-      <p class="text-xs text-neutral-400 mt-1">Premium Textured finish.</p>
-    </div>
-    <a href="https://wa.me/918873274241?text=Hi,%20I'm%20interested%20in%20Artisanal%20Textured%20Gold%20Bracelet" target="_blank" class="block w-full text-center bg-black text-amber-300 border border-amber-600/50 text-[10px] tracking-widest uppercase font-semibold py-2.5 rounded transition hover:bg-amber-950">
-      ENQUIRE ON WHATSAPP
-    </a>
-  </div>
-
-  <!-- 3. Bold Chevron Gold Bracelet -->
-  <div class="jewelry-item space-y-3 bg-neutral-900 border border-amber-900/50 p-4 rounded-xl shadow-lg">
-    <img src="men-bracelet-4.png" alt="Bold Chevron Gold Bracelet for Men" class="w-full h-auto rounded-lg object-contain">
-    <div class="pt-2 border-t border-amber-900/30 text-center">
-      <h3 class="text-sm font-serif text-amber-200">Bold Chevron Gold Bracelet for Men</h3>
-      <p class="text-xs text-neutral-400 mt-1">Powerful Chevron statement.</p>
-    </div>
-    <a href="https://wa.me/918873274241?text=Hi,%20I'm%20interested%20in%20Bold%20Chevron%20Gold%20Bracelet" target="_blank" class="block w-full text-center bg-black text-amber-300 border border-amber-600/50 text-[10px] tracking-widest uppercase font-semibold py-2.5 rounded transition hover:bg-amber-950">
-      ENQUIRE ON WHATSAPP
-    </a>
-  </div>
-
-  <!-- 4. Alluring Gold Bracelet (THIN DESIGN SHIFTED TO LAST) -->
-  <div class="jewelry-item space-y-3 bg-neutral-900 border border-amber-900/50 p-4 rounded-xl shadow-lg">
-    <img src="men-bracelet-1.png" alt="Alluring Gold Bracelet for Men" class="w-full h-auto rounded-lg object-contain">
-    <div class="pt-2 border-t border-amber-900/30 text-center">
-      <h3 class="text-sm font-serif text-amber-200">Alluring Gold Bracelet for Men</h3>
-      <p class="text-xs text-neutral-400 mt-1">Classic Thin chain design.</p>
-    </div>
-    <a href="https://wa.me/918873274241?text=Hi,%20I'm%20interested%20in%20Alluring%20Gold%20Bracelet" target="_blank" class="block w-full text-center bg-black text-amber-300 border border-amber-600/50 text-[10px] tracking-widest uppercase font-semibold py-2.5 rounded transition hover:bg-amber-950">
-      ENQUIRE ON WHATSAPP
-    </a>
-  </div>
-
-</div>
-  <!-- 1. Amorous Gold Bracelet -->
-  <div class="jewelry-item p-4 space-y-3 bg-neutral-900 border border-amber-900/50 rounded-xl shadow-lg transition-transform hover:scale-[1.03]">
-    <img src="men-bracelet-2.png" alt="Amorous Gold Bracelet for Men" class="w-full h-auto rounded-lg object-contain cursor-pointer">
-    <div class="pt-2 border-t border-amber-900/30 text-center">
-      <h3 class="text-sm font-serif text-amber-200">Amorous Gold Bracelet for Men</h3>
-      <p class="text-xs text-neutral-400 mt-1">Bold & Detailed design.</p>
-    </div>
-    <a href="https://wa.me/918873274241?text=Hi,%20I'm%20interested%20in%20Amorous%20Gold%20Bracelet" target="_blank" class="block w-full text-center bg-black text-amber-300 border border-amber-600/50 text-[10px] tracking-widest uppercase font-semibold py-2.5 rounded transition hover:bg-amber-950">
-      ENQUIRE ON WHATSAPP
-    </a>
-  </div>
-
-  <!-- 2. Artisanal Textured Gold Bracelet -->
-  <div class="jewelry-item p-4 space-y-3 bg-neutral-900 border border-amber-900/50 rounded-xl shadow-lg transition-transform hover:scale-[1.03]">
-    <img src="men-bracelet-3.png" alt="Artisanal Textured Gold Bracelet for Men" class="w-full h-auto rounded-lg object-contain cursor-pointer">
-    <div class="pt-2 border-t border-amber-900/30 text-center">
-      <h3 class="text-sm font-serif text-amber-200">Artisanal Textured Gold Bracelet for Men</h3>
-      <p class="text-xs text-neutral-400 mt-1">Premium Textured finish.</p>
-    </div>
-    <a href="https://wa.me/918873274241?text=Hi,%20I'm%20interested%20in%20Artisanal%20Textured%20Gold%20Bracelet" target="_blank" class="block w-full text-center bg-black text-amber-300 border border-amber-600/50 text-[10px] tracking-widest uppercase font-semibold py-2.5 rounded transition hover:bg-amber-950">
-      ENQUIRE ON WHATSAPP
-    </a>
-  </div>
-
-  <!-- 3. Bold Chevron Gold Bracelet -->
-  <div class="jewelry-item p-4 space-y-3 bg-neutral-900 border border-amber-900/50 rounded-xl shadow-lg transition-transform hover:scale-[1.03]">
-    <img src="men-bracelet-4.png" alt="Bold Chevron Gold Bracelet for Men" class="w-full h-auto rounded-lg object-contain cursor-pointer">
-    <div class="pt-2 border-t border-amber-900/30 text-center">
-      <h3 class="text-sm font-serif text-amber-200">Bold Chevron Gold Bracelet for Men</h3>
-      <p class="text-xs text-neutral-400 mt-1">Powerful Chevron statement.</p>
-    </div>
-    <a href="https://wa.me/918873274241?text=Hi,%20I'm%20interested%20in%20Bold%20Chevron%20Gold%20Bracelet" target="_blank" class="block w-full text-center bg-black text-amber-300 border border-amber-600/50 text-[10px] tracking-widest uppercase font-semibold py-2.5 rounded transition hover:bg-amber-950">
-      ENQUIRE ON WHATSAPP
-    </a>
-  </div>
-
-  <!-- 4. Royal Linked Men's Bracelet -->
-  <div class="jewelry-item p-4 space-y-3 bg-neutral-900 border border-amber-900/50 rounded-xl shadow-lg transition-transform hover:scale-[1.03]">
-    <img src="men-bracelet-5.png" alt="Royal Linked Gold Bracelet for Men" class="w-full h-auto rounded-lg object-contain cursor-pointer">
-    <div class="pt-2 border-t border-amber-900/30 text-center">
-      <h3 class="text-sm font-serif text-amber-200">Royal Linked Gold Bracelet</h3>
-      <p class="text-xs text-neutral-400 mt-1">Heavy Royal link pattern.</p>
-    </div>
-    <a href="https://wa.me/918873274241?text=Hi,%20I'm%20interested%20in%20Royal%20Linked%20Gold%20Bracelet" target="_blank" class="block w-full text-center bg-black text-amber-300 border border-amber-600/50 text-[10px] tracking-widest uppercase font-semibold py-2.5 rounded transition hover:bg-amber-950">
-      ENQUIRE ON WHATSAPP
-    </a>
-  </div>
-
-  <!-- 5. Classic Imperial Bracelet -->
-  <div class="jewelry-item p-4 space-y-3 bg-neutral-900 border border-amber-900/50 rounded-xl shadow-lg transition-transform hover:scale-[1.03]">
-    <img src="men-bracelet-6.png" alt="Classic Imperial Gold Bracelet for Men" class="w-full h-auto rounded-lg object-contain cursor-pointer">
-    <div class="pt-2 border-t border-amber-900/30 text-center">
-      <h3 class="text-sm font-serif text-amber-200">Classic Imperial Gold Bracelet</h3>
-      <p class="text-xs text-neutral-400 mt-1">Sleek Imperial finish.</p>
-    </div>
-    <a href="https://wa.me/918873274241?text=Hi,%20I'm%20interested%20in%20Classic%20Imperial%20Gold%20Bracelet" target="_blank" class="block w-full text-center bg-black text-amber-300 border border-amber-600/50 text-[10px] tracking-widest uppercase font-semibold py-2.5 rounded transition hover:bg-amber-950">
-      ENQUIRE ON WHATSAPP
-    </a>
-  </div>
-
-  <!-- 6. Alluring Gold Bracelet (THIN WALA DESIGN - NOW AT 6th PLACE) -->
-  <div class="jewelry-item p-4 space-y-3 bg-neutral-900 border border-amber-900/50 rounded-xl shadow-lg transition-transform hover:scale-[1.03]">
-    <img src="men-bracelet-1.png" alt="Alluring Gold Bracelet for Men" class="w-full h-auto rounded-lg object-contain cursor-pointer">
-    <div class="pt-2 border-t border-amber-900/30 text-center">
-      <h3 class="text-sm font-serif text-amber-200">Alluring Gold Bracelet for Men</h3>
-      <p class="text-xs text-neutral-400 mt-1">Classic Thin chain design.</p>
-    </div>
-    <a href="https://wa.me/918873274241?text=Hi,%20I'm%20interested%20in%20Alluring%20Gold%20Bracelet" target="_blank" class="block w-full text-center bg-black text-amber-300 border border-amber-600/50 text-[10px] tracking-widest uppercase font-semibold py-2.5 rounded transition hover:bg-amber-950">
-      ENQUIRE ON WHATSAPP
-    </a>
-  </div>
-
-</div>
-
-    <!-- Bracelets Grid (Mobile 2 Columns) -->
-    <div id="bracelets-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6"></div>
-  </section>
-
-  <!-- SECTION 2: GOLD RINGS GALLERY -->
-  <section id="rings-section" class="py-12 px-6 max-w-7xl mx-auto border-t border-amber-900/30">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-serif text-amber-200 tracking-wider mb-3">
-        Exclusive Gold Rings Collection
-      </h2>
-      <div class="w-20 h-0.5 bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto"></div>
-    </div>
-
-    <!-- Rings Grid (Mobile 2 Columns) -->
-    <div id="rings-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6"></div>
-  </section>
-
-  <!-- SECTION 3: GOLD BANGLES GALLERY -->
-  <section id="bangles-section" class="py-12 px-6 max-w-7xl mx-auto border-t border-amber-900/30">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-serif text-amber-200 tracking-wider mb-3">
-        Royal Gold Bangles & Kada Collection
-      </h2>
-      <div class="w-20 h-0.5 bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto"></div>
-    </div>
-
-    <!-- Bangles Grid (Mobile 2 Columns) -->
-    <div id="bangles-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6"></div>
-  </section>
-
- 
-  1<!-- STORE ADDRESS & LOCATION SECTION -->
-  <!-- STORE ADDRESS & LOCATION SECTION -->
-  <section id="store-address" class="py-16 px-6 border-t border-amber-900/40 bg-neutral-950">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-      <div class="space-y-4">
-        <span class="text-xs tracking-widest text-amber-400 uppercase">Visit Our Showroom</span>
-        <h2 class="text-3xl font-serif text-amber-100">Sasural Jewellers Store</h2>
-        <p class="text-neutral-400 text-sm leading-relaxed">
-          Experience our royal gold & silver collection in person. Visit our store for certified hallmarked gold and pure silver ornaments.
-        </p>
-        <div class="space-y-2 text-sm text-amber-200/90 pt-2">
-          <p>📍 <strong>Address:</strong> Near Shri Shankar Vastralaya, Bus Stand, Tarapur, Bihar 813221</p>
-          <p>🕒 <strong>Store Timings:</strong> 10:30 AM - 8:30 PM (Open Daily)</p>
-          <p>📞 <strong>Phone:</strong> +91 62062 17161</p>
-          <p>💬 <strong>WhatsApp Gold:</strong> +91 88732 74241</p>
-        </div>
-
-        <div class="pt-2">
-          <a href="https://maps.app.goo.gl/cfjqMHNFXqL7q4PB9" target="_blank" class="inline-flex items-center space-x-2 bg-gradient-to-r from-amber-400 to-yellow-600 text-black font-semibold px-6 py-2.5 text-xs tracking-widest uppercase hover:brightness-110 transition-all rounded shadow-md">
-            <span>🗺️ Get Directions on Google Maps</span>
+        <!-- 1. Amorous Gold Bracelet -->
+        <div class="jewelry-item space-y-3 bg-neutral-900 border border-amber-900/50 p-4 rounded-xl shadow-lg">
+          <img src="men-bracelet-2.png" alt="Amorous Gold Bracelet for Men" class="w-full h-auto rounded-lg object-contain">
+          <div class="pt-2 border-t border-amber-900/30 text-center">
+            <h3 class="text-sm font-serif text-amber-200">Amorous Gold Bracelet for Men</h3>
+            <p class="text-xs text-neutral-400 mt-1">Bold & Detailed design.</p>
+          </div>
+          <a href="https://wa.me/918873274241?text=Hi,%20I'm%20interested%20in%20Amorous%20Gold%20Bracelet" target="_blank" class="block w-full text-center bg-black text-amber-300 border border-amber-600/50 text-[10px] tracking-widest uppercase font-semibold py-2.5 rounded transition hover:bg-amber-950">
+            ENQUIRE ON WHATSAPP
           </a>
         </div>
 
-        <div class="pt-4 flex space-x-4 border-t border-amber-900/30">
-          <img src="bis-916.png" alt="BIS 916" onerror="this.src='bis%20hallmarked%20-916.png';" class="w-12 h-12 object-contain rounded-full border border-amber-500/30">
-          <img src="bis-750.png" alt="BIS 750" onerror="this.src='bis%20hallmarked%20-750.png';" class="w-12 h-12 object-contain rounded-full border border-amber-500/30">
+        <!-- 2. Artisanal Textured Gold Bracelet -->
+        <div class="jewelry-item space-y-3 bg-neutral-900 border border-amber-900/50 p-4 rounded-xl shadow-lg">
+          <img src="men-bracelet-3.png" alt="Artisanal Textured Gold Bracelet for Men" class="w-full h-auto rounded-lg object-contain">
+          <div class="pt-2 border-t border-amber-900/30 text-center">
+            <h3 class="text-sm font-serif text-amber-200">Artisanal Textured Gold Bracelet for Men</h3>
+            <p class="text-xs text-neutral-400 mt-1">Premium Textured finish.</p>
+          </div>
+          <a href="https://wa.me/918873274241?text=Hi,%20I'm%20interested%20in%20Artisanal%20Textured%20Gold%20Bracelet" target="_blank" class="block w-full text-center bg-black text-amber-300 border border-amber-600/50 text-[10px] tracking-widest uppercase font-semibold py-2.5 rounded transition hover:bg-amber-950">
+            ENQUIRE ON WHATSAPP
+          </a>
+        </div>
+
+        <!-- 3. Bold Chevron Gold Bracelet -->
+        <div class="jewelry-item space-y-3 bg-neutral-900 border border-amber-900/50 p-4 rounded-xl shadow-lg">
+          <img src="men-bracelet-4.png" alt="Bold Chevron Gold Bracelet for Men" class="w-full h-auto rounded-lg object-contain">
+          <div class="pt-2 border-t border-amber-900/30 text-center">
+            <h3 class="text-sm font-serif text-amber-200">Bold Chevron Gold Bracelet for Men</h3>
+            <p class="text-xs text-neutral-400 mt-1">Powerful Chevron statement.</p>
+          </div>
+          <a href="https://wa.me/918873274241?text=Hi,%20I'm%20interested%20in%20Bold%20Chevron%20Gold%20Bracelet" target="_blank" class="block w-full text-center bg-black text-amber-300 border border-amber-600/50 text-[10px] tracking-widest uppercase font-semibold py-2.5 rounded transition hover:bg-amber-950">
+            ENQUIRE ON WHATSAPP
+          </a>
+        </div>
+
+        <!-- 4. Alluring Gold Bracelet (THIN DESIGN AT LAST) -->
+        <div class="jewelry-item space-y-3 bg-neutral-900 border border-amber-900/50 p-4 rounded-xl shadow-lg">
+          <img src="men-bracelet-1.png" alt="Alluring Gold Bracelet for Men" class="w-full h-auto rounded-lg object-contain">
+          <div class="pt-2 border-t border-amber-900/30 text-center">
+            <h3 class="text-sm font-serif text-amber-200">Alluring Gold Bracelet for Men</h3>
+            <p class="text-xs text-neutral-400 mt-1">Classic Thin chain design.</p>
+          </div>
+          <a href="https://wa.me/918873274241?text=Hi,%20I'm%20interested%20in%20Alluring%20Gold%20Bracelet" target="_blank" class="block w-full text-center bg-black text-amber-300 border border-amber-600/50 text-[10px] tracking-widest uppercase font-semibold py-2.5 rounded transition hover:bg-amber-950">
+            ENQUIRE ON WHATSAPP
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- STORE ADDRESS & LOCATION SECTION -->
+    <section id="store-address" class="py-16 px-6 border-t border-amber-900/40 bg-neutral-950">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div class="space-y-4">
+          <span class="text-xs tracking-widest text-amber-400 uppercase">Visit Our Showroom</span>
+          <h2 class="text-3xl font-serif text-amber-100">Sasural Jewellers Store</h2>
+          <p class="text-neutral-400 text-sm leading-relaxed">
+            Experience our royal gold & silver collection in person. Visit our store for certified hallmarked gold and pure silver ornaments.
+          </p>
+          <div class="space-y-2 text-sm text-amber-200/90 pt-2">
+            <p>📍 <strong>Address:</strong> Near Shri Shankar Vastralaya, Bus Stand, Tarapur, Bihar 813221</p>
+            <p>🕒 <strong>Store Timings:</strong> 10:30 AM - 8:30 PM (Open Daily)</p>
+            <p>📞 <strong>Phone:</strong> +91 62062 17161</p>
+            <p>💬 <strong>WhatsApp Gold:</strong> +91 88732 74241</p>
+          </div>
+          <div class="pt-2">
+            <a href="https://maps.app.goo.gl/t2nYZZsvazhXMNjd8" target="_blank" class="inline-flex items-center space-x-2 bg-gradient-to-r from-amber-500 to-yellow-600 text-black px-5 py-2.5 rounded-lg font-semibold text-xs uppercase tracking-wider hover:brightness-110 transition">
+              <span>🗺️ Get Directions on Google Maps</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- GOOGLE MAP EMBEDDED IFRAME -->
+        <div class="w-full h-80 rounded-2xl overflow-hidden border border-amber-900/50 shadow-2xl">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.5681643190805!2d86.64500057593922!3d25.11648073428135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f1e16483cb146f%3A0xe671ea32a39a7b64!2sSasural%20Jewellers!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
       </div>
-      <div class="border border-amber-500/30 rounded-lg p-2 bg-neutral-900 overflow-hidden">
-        <iframe 
-          title="Sasural Jewellers Location"
-          src="https://maps.google.com/maps?q=Sasural+Jewellers,+Deoghar+Rd,+Tarapur,+Bihar+813221&t=&z=16&ie=UTF8&iwloc=&output=embed" 
-          class="w-full h-72 rounded border-0 filter opacity-90 hover:opacity-100 transition-all"
-          allowfullscreen=""
-          loading="lazy">
-        </iframe>
-      </div>
-    </div>
-  </section>
-  <!-- FLOATING CONTACT BUTTONS -->
-  <div class="fixed bottom-6 right-6 z-40 flex flex-col space-y-2">
-    <a href="https://wa.me/918873274241?text=Hi%20Sasural%20Jewellers,%20I%20have%20a%20Gold%20enquiry" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-full shadow-lg text-xs font-medium flex items-center space-x-2">
-      <span>💬 Gold Enquiry: 88732 74241</span>
-    </a>
-    <a href="https://wa.me/919110045058?text=Hi%20Sasural%20Jewellers,%20I%20have%20a%20Silver%20enquiry" target="_blank" class="bg-emerald-700 hover:bg-emerald-600 text-white px-4 py-2 rounded-full shadow-lg text-xs font-medium flex items-center space-x-2">
-      <span>💬 Silver Enquiry: 91100 45058</span>
-    </a>
-    <a href="tel:6206217161" class="bg-amber-600 hover:bg-amber-500 text-black px-4 py-2 rounded-full shadow-lg text-xs font-semibold flex items-center space-x-2">
-      <span>📞 Call Store: 62062 17161</span>
-    </a>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-amber-900/40 py-8 bg-neutral-900/50 text-center text-xs text-neutral-500 space-y-2">
+    <p>© 2026 Sasural Jewellers. All Rights Reserved.</p>
+    <p class="text-amber-400/60 font-serif">Certified 100% Hallmarked Jewellery</p>
+  </footer>
+
+  <!-- IMAGE ZOOM MODAL (POPUP) -->
+  <div id="imageModal">
+    <span id="closeModal">&times;</span>
+    <img id="modalImage" src="" alt="Zoomed Jewelry Design">
   </div>
 
-  <!-- SCRIPT -->
+  <!-- JAVASCRIPT POPUP LOGIC -->
   <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      setTimeout(() => {
-        const splash = document.getElementById('splash-screen');
-        if (splash) {
-          splash.style.opacity = '0';
-          setTimeout(() => splash.style.display = 'none', 700);
-        }
-      }, 2000);
+    document.addEventListener("click", function (e) {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImage");
 
-      // BRACELETS DATA
-      const braceletImages = [
-        { name: "Alluring Gold Bracelet for Men", file: "Alluring Gold Bracelet for Men" },
-        { name: "Amorous Gold Bracelet for Men", file: "Amorous Gold Bracelet for Men" },
-        { name: "Artisanal Textured Gold Bracelet for Men", file: "Artisanal Textured Gold Bracelet for Men" },
-        { name: "Bold Chevron Gold Bracelet for Men", file: "Bold Chevron Gold Bracelet for Men" },
-        { name: "Bold Geometric Gold Bracelet for Men", file: "Bold Geometric Gold Bracelet for Men" },
-        { name: "Bold Matrix Gold Bracelet for Men", file: "Bold Matrix Gold Bracelet for Men" },
-        { name: "Classy Bracelet For Men", file: "Classy Bracelet For Men" },
-        { name: "Contemporary Block Gold Bracelet for Men", file: "Contemporary Block Gold Bracelet for Men" },
-        { name: "Elegant Gold Bracelet for Men", file: "Elegant Gold Bracelet for Men" },
-        { name: "Exquisite Gold Bracelet for Men", file: "Exquisite Gold Bracelet for Men" },
-        { name: "Geometric Flow Gold Bracelet for Men", file: "Geometric Flow Gold Bracelet for Men" },
-        { name: "Geometric Weave Gold Bracelet for Men", file: "Geometric Weave Gold Bracelet for Men" },
-        { name: "Grid Link Gold Bracelet for Men", file: "Grid Link Gold Bracelet for Men" },
-        { name: "Heritage Chevron Gold Bracelet for Men", file: "Heritage Chevron Gold Bracelet for Men" },
-        { name: "Interlocking Gold Bracelet for Men", file: "Interlocking Gold Bracelet for Men" },
-        { name: "Linear Code Gold Bracelet for Men", file: "Linear Code Gold Bracelet for Men" },
-        { name: "Linear Edge Gold Bracelet for Men", file: "Linear Edge Gold Bracelet for Men" },
-        { name: "Linear Weave Gold Bracelet for Men", file: "Linear Weave Gold Bracelet for Men" },
-        { name: "Link Chain Style Gold Bracelet For Men", file: "Link Chain Style Gold Bracelet For Men" },
-        { name: "Lunar Pattern Gold Bracelet for Men", file: "Lunar Pattern Gold Bracelet for Men" },
-        { name: "Majestic Statement Gold Bracelet for Men", file: "Majestic Statement Gold Bracelet for Men" },
-        { name: "Modern Grid Gold Bracelet for Men", file: "Modern Grid Gold Bracelet for Men" },
-        { name: "Power Link Gold Bracelet for Men", file: "Power Link Gold Bracelet for Men" },
-        { name: "Power Links Gold Bracelet for Men", file: "Power Links Gold Bracelet for Men" },
-        { name: "Power Statement Gold Bracelet for Men", file: "Power Statement Gold Bracelet for Men" },
-        { name: "Regal Figaro Gold Bracelet for Men", file: "Regal Figaro Gold Bracelet for Men" },
-        { name: "Sculpted Link Gold Bracelet for Men", file: "Sculpted Link Gold Bracelet for Men" },
-        { name: "Smooth Grid Gold Bracelet for Men", file: "Smooth Grid Gold Bracelet for Men" },
-        { name: "Splendid Gold Bracelet For Men", file: "Splendid Gold Bracelet For Men" },
-        { name: "Statement Link Gold Bracelet for Men", file: "Statement Link Gold Bracelet for Men" },
-        { name: "Structured Grid Gold Bracelet for Men", file: "Structured Grid Gold Bracelet for Men" },
-        { name: "Unique Style Link Gold Bracelet For Men", file: "Unique Style Link Gold Bracelet For Men" }
-      ];
-
-      // RINGS DATA
-      const ringImages = [
-        { name: "Alluring Scallop Gold Ring", file: "Alluring scallop Gold Ring.jpg" },
-        { name: "Classy Ring", file: "Classy Ring.jpg" },
-        { name: "Dainty Shine Ring", file: "Dainty Shine Ring.png" },
-        { name: "Flora Miracle Plate Diamond Ring", file: "Flora Miracle Plate Diamond Ring.jpg" },
-        { name: "Glossy Ring", file: "Glossy Ring.jpg" },
-        { name: "Gold Band Ring", file: "Gold Band ring.jpg" },
-        { name: "Intertwist Gold Ring", file: "Intertwist Gold Ring.jpg" },
-        { name: "Jordan Diamond Ring", file: "Jordan Diamond ring.jpg" },
-        { name: "Lotus Gild Gold Ring", file: "Lotus Gild Gold Ring.jpg" },
-        { name: "Modest Floral Ring", file: "Modest Floral Ring.jpg" },
-        { name: "Plain Stack Gold Ring", file: "Plain Stack Gold Ring.jpg" },
-        { name: "Radiant Heart Diamond Ring", file: "Radiant Heart diamond Ring.png" },
-        { name: "Renica Band Ring", file: "Renica Band Ring.jpg" },
-        { name: "Riwaaz Radiance Gold Ring", file: "Riwaaz Radiance Gold Ring.png" },
-        { name: "Scalop Stack Gold Ring", file: "Scalop Stack Gold Ring.jpg" },
-        { name: "Sonnet Gold Ring", file: "Sonnet Gold Ring.jpg" },
-        { name: "Spartan Gold Ring", file: "Spartan Gold Ring.jpg" },
-        { name: "Stack Ring", file: "Stack Ring.jpg" },
-        { name: "Suave Gold Ring", file: "Suave Gold Ring.jpg" },
-        { name: "Terra Firma Gold Ring", file: "Terra Firma Gold Ring.jpg" },
-        { name: "Trine Cluster Diamond Ring", file: "Trine Cluster Diamond Ring.png" },
-        { name: "Twight Twirl Ring", file: "Twight Twirl Ring.jpg" },
-        { name: "Wave Crest Gold Ring", file: "Wave Crest Gold Ring.jpg" },
-        { name: "Veltrix Solitaire Ring", file: "veltrix solitaire Ring.jpg" }
-      ];
-
-      // BANGLES DATA
-      const bangleImages = [
-        { name: "Aarini Gold Bangle", file: "Aarini Gold Bangle.jpg" },
-        { name: "Aaryan Gold Kada", file: "Aaryan Gold Kada.png" },
-        { name: "Amrita Gold Bangle", file: "Amrita Gold Bangle.jpg" },
-        { name: "Emily Gold Bangle", file: "Emily Gold Bangle.jpg" },
-        { name: "Gagan Gold Kada", file: "Gagan Gold Kada.png" },
-        { name: "Glided Sparkle", file: "Glided Sparkle.jpg" },
-        { name: "Groovy Gold Bangle", file: "Groovy Gold Bangle.jpg" },
-        { name: "Groovy Texture Gold Bangle", file: "Groovy Texture Gold Bangle.png" },
-        { name: "Kanaki Gold Bangle", file: "Kanaki Gold Bangle.jpg" },
-        { name: "Ovina Gold Bangle", file: "Ovina Gold Bangle.png" },
-        { name: "Reena Gold Bangle", file: "Reena Gold bangle.jpg" },
-        { name: "Refined Glossy Gold Bangle", file: "Refined Glossy Gold Bangle.jpg" },
-        { name: "Regal Glow Bangle", file: "Regal Glow Bangle.jpg" },
-        { name: "Sonika Gold Bangle", file: "Sonika Gold Bangle.jpg" },
-        { name: "Sparsha Gold Bangle", file: "Sparsha Gold Bangle.jpg" },
-        { name: "Temple Treaser Gold Bangle", file: "Temple Treaser Gold Bangle.png" },
-        { name: "Twilight Bliss Gold Bangle", file: "Twilight Bliss Gold Bangle.jpg" },
-        { name: "Urban Chevron Gold Bangle", file: "Urban Chevron  Gold Bangle.jpg" }
-      ];
-
-      function renderBracelets(items) {
-        const container = document.getElementById('bracelets-grid');
-        if(!container) return;
-        let html = '';
-        items.forEach((item) => {
-          const baseName = encodeURIComponent(item.file);
-          const encodedText = encodeURIComponent(`Hi Sasural Jewellers, I am interested in ${item.name}`);
-          
-          html += `
-            <div class="product-card group relative overflow-hidden rounded-sm border border-amber-900/30 bg-neutral-900/50 hover:border-amber-400/60 transition-all shadow-md">
-              <div class="aspect-square overflow-hidden bg-neutral-800 cursor-pointer relative" onclick="openModal(this, '${item.name}')">
-                <img src="${baseName}.jpg" alt="${item.name}" 
-                     onerror="if(!this.dataset.step){this.dataset.step=1; this.src='${baseName}.png';} else if(this.dataset.step=='1'){this.dataset.step=2; this.src='${baseName}.webp';} else if(this.dataset.step=='2'){this.dataset.step=3; this.src='${baseName}.jpeg';}"
-                     loading="lazy" 
-                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              </div>
-              <div class="p-4 text-center">
-                <h3 class="product-name text-sm font-serif text-amber-100 truncate">${item.name}</h3>
-                <a href="https://wa.me/918873274241?text=${encodedText}" 
-                   target="_blank" 
-                   class="mt-3 block w-full py-1.5 border border-amber-400/40 text-amber-300 text-xs uppercase hover:bg-amber-400 hover:text-black transition-all font-medium">
-                  Enquire on WhatsApp
-                </a>
-              </div>
-            </div>
-          `;
-        });
-        container.innerHTML = html;
+      // Open modal on image click (excluding logo/modal images)
+      if (e.target.tagName === "IMG" && e.target.id !== "modalImage" && !e.target.src.includes("bis")) {
+        modal.style.display = "flex";
+        modalImg.src = e.target.src;
       }
 
-      function renderGallery(items, containerId) {
-        const container = document.getElementById(containerId);
-        if(!container) return;
-        let html = '';
-        items.forEach((item) => {
-          const encodedFile = encodeURIComponent(item.file);
-          const encodedText = encodeURIComponent(`Hi Sasural Jewellers, I am interested in ${item.name}`);
-          
-          html += `
-            <div class="product-card group relative overflow-hidden rounded-sm border border-amber-900/30 bg-neutral-900/50 hover:border-amber-400/60 transition-all shadow-md">
-              <div class="aspect-square overflow-hidden bg-neutral-800 cursor-pointer relative" onclick="openModal(this, '${item.name}')">
-                <img src="${encodedFile}" alt="${item.name}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              </div>
-              <div class="p-4 text-center">
-                <h3 class="product-name text-sm font-serif text-amber-100 truncate">${item.name}</h3>
-                <a href="https://wa.me/918873274241?text=${encodedText}" 
-                   target="_blank" 
-                   class="mt-3 block w-full py-1.5 border border-amber-400/40 text-amber-300 text-xs uppercase hover:bg-amber-400 hover:text-black transition-all font-medium">
-                  Enquire on WhatsApp
-                </a>
-              </div>
-            </div>
-          `;
-        });
-        container.innerHTML = html;
+      // Close modal on clicking 'X' or outside black overlay
+      if (e.target.id === "closeModal" || e.target.id === "imageModal") {
+        modal.style.display = "none";
       }
-
-      renderBracelets(braceletImages);
-      renderGallery(ringImages, 'rings-grid');
-      renderGallery(bangleImages, 'bangles-grid');
     });
 
-    function openModal(cardElem, title) {
-      let finalSrc = '';
-      if (cardElem) {
-        const img = cardElem.querySelector('img');
-        if (img && img.src) {
-          finalSrc = img.src;
-        }
+    // Close on Escape key press
+    document.addEventListener("keydown", function (e) {
+      const modal = document.getElementById("imageModal");
+      if (e.key === "Escape" && modal) {
+        modal.style.display = "none";
       }
-      document.getElementById('modalImg').src = finalSrc;
-      document.getElementById('modalTitle').innerText = title;
-      document.getElementById('imageModal').classList.remove('hidden');
-    }
-
-    function closeModal() {
-      document.getElementById('imageModal').classList.add('hidden');
-    }
-
-    function filterProducts() {
-      const input = document.getElementById('searchInput').value.toLowerCase();
-      const cards = document.querySelectorAll('.product-card');
-      cards.forEach(card => {
-        const name = card.querySelector('.product-name').innerText.toLowerCase();
-        if(name.includes(input)) {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
-        }
-      });
-    }
-    // Dynamic & Static Images dono ke liye Popup Logic
-  document.addEventListener("click", function (e) {
-    const modal = document.getElementById("imageModal");
-    const modalImg = document.getElementById("modalImage");
-
-    if (e.target.tagName === "IMG" && e.target.id !== "modalImage" && !e.target.src.includes("bis")) {
-      modal.style.display = "flex";
-      modalImg.src = e.target.src;
-    }
-
-    if (e.target.id === "closeModal" || e.target.id === "imageModal") {
-      modal.style.display = "none";
-    }
-  });
-
-  document.addEventListener("keydown", function (e) {
-    const modal = document.getElementById("imageModal");
-    if (e.key === "Escape" && modal) {
-      modal.style.display = "none";
-    }
-  });
+    });
   </script>
 </body>
 </html>
