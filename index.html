@@ -6,6 +6,60 @@
   <title>Sasural Jewellers | Luxury Gold & Silver Jewellery</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  /* POPUP OVERLAY STYLES */
+    #imageModal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.92);
+      padding: 20px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #closeModal {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fbbf24;
+      font-size: 45px;
+      font-weight: bold;
+      transition: 0.2s;
+      cursor: pointer;
+      z-index: 10000;
+    }
+
+    #closeModal:hover { color: #ffffff; }
+
+    /* LAPTOP & MOBILE SIZE CONTROL */
+    #modalImage {
+      margin: auto;
+      display: block;
+      max-width: 50vw !important;  /* Laptop Screen: 50% max width */
+      max-height: 75vh !important; /* Laptop Screen: 75% max height */
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border: 3px solid #fbbf24;
+      border-radius: 8px;
+      box-shadow: 0 0 25px rgba(251, 191, 36, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      #modalImage {
+        max-width: 88vw !important; /* Mobile Screen: 88% width */
+        max-height: 80vh !important;
+      }
+      #closeModal {
+        top: 10px;
+        right: 15px;
+        font-size: 36px;
+      }
+    }
   <style>
     html { scroll-behavior: smooth; }
     @keyframes pulseGlow {
@@ -394,6 +448,35 @@
         }
       });
     }
+    // Popup Open and Close Logic
+  document.addEventListener("click", function (e) {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+
+    // Click on any jewelry image to open modal
+    if (e.target.tagName === "IMG" && e.target.id !== "modalImage" && !e.target.src.includes("bis")) {
+      modal.style.display = "flex";
+      modalImg.src = e.target.src;
+    }
+
+    // Close modal on 'X' or outside black screen click
+    if (e.target.id === "closeModal" || e.target.id === "imageModal") {
+      modal.style.display = "none";
+    }
+  });
+
+  // Close modal on ESC key
+  document.addEventListener("keydown", function (e) {
+    const modal = document.getElementById("imageModal");
+    if (e.key === "Escape" && modal) {
+      modal.style.display = "none";
+    }
+  });
   </script>
+  <!-- IMAGE POPUP CONTAINER -->
+<div id="imageModal">
+  <span id="closeModal">&times;</span>
+  <img id="modalImage" src="" alt="Zoomed Jewelry Design">
+</div>
 </body>
 </html>
