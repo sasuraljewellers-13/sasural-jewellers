@@ -6,7 +6,9 @@
   <title>Sasural Jewellers | Luxury Gold & Silver Jewellery</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  /* POPUP OVERLAY STYLES */
+  
+  <style>
+    /* POPUP OVERLAY STYLES */
     #imageModal {
       display: none;
       position: fixed;
@@ -35,7 +37,7 @@
 
     #closeModal:hover { color: #ffffff; }
 
-   /* LAPTOP & MOBILE SIZE CONTROL */
+    /* LAPTOP & MOBILE SIZE CONTROL */
     #modalImage {
       margin: auto;
       display: block;
@@ -176,7 +178,6 @@
       <div class="w-20 h-0.5 bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto mt-3"></div>
     </div>
 
-    <!-- Bracelets Grid (Mobile 2 Columns) -->
     <div id="bracelets-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6"></div>
   </section>
 
@@ -189,7 +190,6 @@
       <div class="w-20 h-0.5 bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto"></div>
     </div>
 
-    <!-- Rings Grid (Mobile 2 Columns) -->
     <div id="rings-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6"></div>
   </section>
 
@@ -202,12 +202,9 @@
       <div class="w-20 h-0.5 bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto"></div>
     </div>
 
-    <!-- Bangles Grid (Mobile 2 Columns) -->
     <div id="bangles-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6"></div>
   </section>
 
- 
-  1<!-- STORE ADDRESS & LOCATION SECTION -->
   <!-- STORE ADDRESS & LOCATION SECTION -->
   <section id="store-address" class="py-16 px-6 border-t border-amber-900/40 bg-neutral-950">
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
@@ -246,6 +243,7 @@
       </div>
     </div>
   </section>
+
   <!-- FLOATING CONTACT BUTTONS -->
   <div class="fixed bottom-6 right-6 z-40 flex flex-col space-y-2">
     <a href="https://wa.me/918873274241?text=Hi%20Sasural%20Jewellers,%20I%20have%20a%20Gold%20enquiry" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-full shadow-lg text-xs font-medium flex items-center space-x-2">
@@ -257,6 +255,12 @@
     <a href="tel:6206217161" class="bg-amber-600 hover:bg-amber-500 text-black px-4 py-2 rounded-full shadow-lg text-xs font-semibold flex items-center space-x-2">
       <span>📞 Call Store: 62062 17161</span>
     </a>
+  </div>
+
+  <!-- IMAGE POPUP CONTAINER -->
+  <div id="imageModal">
+    <span id="closeModal">&times;</span>
+    <img id="modalImage" src="" alt="Zoomed Jewelry Design">
   </div>
 
   <!-- SCRIPT -->
@@ -366,7 +370,7 @@
           
           html += `
             <div class="product-card group relative overflow-hidden rounded-sm border border-amber-900/30 bg-neutral-900/50 hover:border-amber-400/60 transition-all shadow-md">
-              <div class="aspect-square overflow-hidden bg-neutral-800 cursor-pointer relative" onclick="openModal(this, '${item.name}')">
+              <div class="aspect-square overflow-hidden bg-neutral-800 cursor-pointer relative">
                 <img src="${baseName}.jpg" alt="${item.name}" 
                      onerror="if(!this.dataset.step){this.dataset.step=1; this.src='${baseName}.png';} else if(this.dataset.step=='1'){this.dataset.step=2; this.src='${baseName}.webp';} else if(this.dataset.step=='2'){this.dataset.step=3; this.src='${baseName}.jpeg';}"
                      loading="lazy" 
@@ -396,7 +400,7 @@
           
           html += `
             <div class="product-card group relative overflow-hidden rounded-sm border border-amber-900/30 bg-neutral-900/50 hover:border-amber-400/60 transition-all shadow-md">
-              <div class="aspect-square overflow-hidden bg-neutral-800 cursor-pointer relative" onclick="openModal(this, '${item.name}')">
+              <div class="aspect-square overflow-hidden bg-neutral-800 cursor-pointer relative">
                 <img src="${encodedFile}" alt="${item.name}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
               </div>
               <div class="p-4 text-center">
@@ -418,23 +422,6 @@
       renderGallery(bangleImages, 'bangles-grid');
     });
 
-    function openModal(cardElem, title) {
-      let finalSrc = '';
-      if (cardElem) {
-        const img = cardElem.querySelector('img');
-        if (img && img.src) {
-          finalSrc = img.src;
-        }
-      }
-      document.getElementById('modalImg').src = finalSrc;
-      document.getElementById('modalTitle').innerText = title;
-      document.getElementById('imageModal').classList.remove('hidden');
-    }
-
-    function closeModal() {
-      document.getElementById('imageModal').classList.add('hidden');
-    }
-
     function filterProducts() {
       const input = document.getElementById('searchInput').value.toLowerCase();
       const cards = document.querySelectorAll('.product-card');
@@ -447,35 +434,28 @@
         }
       });
     }
-    // Popup Open and Close Logic
-  document.addEventListener("click", function (e) {
-    const modal = document.getElementById("imageModal");
-    const modalImg = document.getElementById("modalImage");
 
-    // Click on any jewelry image to open modal
-    if (e.target.tagName === "IMG" && e.target.id !== "modalImage" && !e.target.src.includes("bis")) {
-      modal.style.display = "flex";
-      modalImg.src = e.target.src;
-    }
+    // POPUP LOGIC
+    document.addEventListener("click", function (e) {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImage");
 
-    // Close modal on 'X' or outside black screen click
-    if (e.target.id === "closeModal" || e.target.id === "imageModal") {
-      modal.style.display = "none";
-    }
-  });
+      if (e.target.tagName === "IMG" && e.target.id !== "modalImage" && !e.target.src.includes("bis")) {
+        modal.style.display = "flex";
+        modalImg.src = e.target.src;
+      }
 
-  // Close modal on ESC key
-  document.addEventListener("keydown", function (e) {
-    const modal = document.getElementById("imageModal");
-    if (e.key === "Escape" && modal) {
-      modal.style.display = "none";
-    }
-  });
+      if (e.target.id === "closeModal" || e.target.id === "imageModal") {
+        modal.style.display = "none";
+      }
+    });
+
+    document.addEventListener("keydown", function (e) {
+      const modal = document.getElementById("imageModal");
+      if (e.key === "Escape" && modal) {
+        modal.style.display = "none";
+      }
+    });
   </script>
-  <!-- IMAGE POPUP CONTAINER -->
-<div id="imageModal">
-  <span id="closeModal">&times;</span>
-  <img id="modalImage" src="" alt="Zoomed Jewelry Design">
-</div>
 </body>
 </html>
