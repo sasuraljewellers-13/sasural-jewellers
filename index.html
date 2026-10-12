@@ -513,5 +513,26 @@
       }
     });
   </script>
+  <!-- LIVE SEARCH & SMOOTH SCROLL SCRIPT -->
+  <script>
+    // Live Search Functionality
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+      searchInput.addEventListener('keyup', function() {
+        let filterValue = this.value.toLowerCase().trim();
+        let productCards = document.querySelectorAll('.product-card');
+
+        productCards.forEach(card => {
+          let text = card.innerText.toLowerCase();
+          if (text.includes(filterValue)) {
+            card.style.display = "";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    }
+  </script>
+</body>
 </body>
 </html>
