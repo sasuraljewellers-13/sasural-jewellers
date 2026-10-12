@@ -71,21 +71,24 @@
     .animate-glow { animation: pulseGlow 2.5s infinite; }
   </style>
 </head>
+</head>
 <body class="bg-[#0a0a0a] text-amber-50 font-sans selection:bg-amber-500 selection:text-black">
 
-  <!-- 1. LAUNCH BANNER -->
+  <!-- 1. LUXURY LAUNCH BANNER -->
   <div class="bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 text-black py-2 px-4 text-center text-xs md:text-sm font-bold tracking-wide shadow-md">
     🔥 Launch Offer: Gold Jewellery Making Charges Par Flat <span class="underline underline-offset-2 font-black">25% OFF</span>! 🔥
   </div>
- <!-- 2. MODERN CLEAN NAVBAR & CATEGORY MENU -->
-  <header class="bg-black/95 backdrop-blur-md border-b border-amber-900/30 sticky top-0 z-50">
+
+  <!-- 2. LUXURY NAVBAR & NAVIGATION -->
+  <header class="bg-black/95 backdrop-blur-md border-b border-amber-900/40 sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- TOP MAIN HEADER (Logo + Search Bar + Quick Actions) -->
-      <div class="flex items-center justify-between h-20 gap-4">
+      
+      <!-- TOP MAIN HEADER (Logo + Call Store) -->
+      <div class="flex items-center justify-between h-20">
         
         <!-- BRAND LOGO -->
-        <a href="#" class="flex items-center space-x-3 group shrink-0">
-          <div class="w-11 h-11 rounded-full border border-amber-500/50 flex items-center justify-center bg-gradient-to-br from-neutral-900 to-black text-amber-400 font-serif font-bold text-lg group-hover:border-amber-400 transition-colors">
+        <a href="#" class="flex items-center space-x-3 group">
+          <div class="w-11 h-11 rounded-full border border-amber-500/60 flex items-center justify-center bg-gradient-to-br from-neutral-900 via-black to-neutral-900 text-amber-400 font-serif font-bold text-lg group-hover:border-amber-400 shadow-[0_0_15px_rgba(251,191,36,0.2)] transition-all">
             SJ
           </div>
           <div>
@@ -94,11 +97,10 @@
           </div>
         </a>
 
-      
-        <!-- QUICK CALL / STORE BUTTON -->
+        <!-- QUICK CALL BUTTON -->
         <div class="flex items-center space-x-3">
-          <a href="tel:6206217161" class="hidden sm:inline-flex items-center space-x-2 border border-amber-500/50 px-4 py-2 rounded-full text-xs font-semibold text-amber-300 hover:bg-amber-500/10 hover:border-amber-400 transition-all">
-            <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+          <a href="tel:6206217161" class="inline-flex items-center space-x-2 border border-amber-500/50 bg-amber-500/10 px-4 py-2 rounded-full text-xs font-semibold text-amber-300 hover:bg-amber-500 hover:text-black transition-all duration-300">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
               <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
             </svg>
             <span>CALL STORE</span>
@@ -107,8 +109,8 @@
 
       </div>
 
-      <!-- CATEGORY NAVIGATION STRIP (Indriya Style Sub-Menu) -->
-      <nav class="border-t border-amber-900/20 py-2.5 overflow-x-auto no-scrollbar">
+      <!-- CATEGORY MENU STRIP -->
+      <nav class="border-t border-amber-900/20 py-2.5 overflow-x-auto">
         <ul class="flex items-center justify-start md:justify-center space-x-8 text-xs tracking-wider uppercase font-medium text-neutral-300 whitespace-nowrap">
           <li><a href="#" class="text-amber-400 font-bold border-b border-amber-400 pb-1">All Jewellery</a></li>
           <li><a href="#gold-rings" class="hover:text-amber-300 transition-colors">Gold Rings</a></li>
@@ -118,6 +120,7 @@
           <li><a href="#store-location" class="hover:text-amber-300 transition-colors">Visit Store</a></li>
         </ul>
       </nav>
+
     </div>
   </header>
 
