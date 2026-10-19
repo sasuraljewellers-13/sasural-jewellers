@@ -102,6 +102,8 @@
           <div class="relative w-full">
             <input 
               type="text" 
+              id="searchInputTop"
+              oninput="syncSearch(this)"
               placeholder="Search For Gold Rings, Bracelets, Bangles..." 
               class="w-full bg-neutral-900/90 text-amber-100 placeholder-neutral-400 text-xs rounded-full py-2.5 pl-11 pr-4 border border-amber-500/30 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 shadow-inner transition-all"
             />
@@ -477,6 +479,14 @@
       renderGallery(ringImages, 'rings-grid');
       renderGallery(bangleImages, 'bangles-grid');
     });
+
+    function syncSearch(source) {
+      const bottomSearch = document.getElementById('searchInput');
+      const topSearch = document.getElementById('searchInputTop');
+      if (bottomSearch && bottomSearch !== source) bottomSearch.value = source.value;
+      if (topSearch && topSearch !== source) topSearch.value = source.value;
+      filterProducts();
+    }
 
     function filterProducts() {
       const input = document.getElementById('searchInput').value.toLowerCase();
